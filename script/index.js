@@ -37,6 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth > 992) {
       $('.header__top').classList.remove('class', 'flexForTop');
       $('.header__toggler > span').classList.remove('rotate180');
+      $('.header__mid__toggle__search').classList.remove('d-block');
     }
   });
 
@@ -188,11 +189,13 @@ window.addEventListener('DOMContentLoaded', () => {
       ) {
         child.classList.add('animate__animated', 'animate__fadeIn');
         child.style.setProperty('--animate-duration', '0.5s');
-        child.style.display = 'block';
+        child.classList.remove('d-none');
+        child.classList.add('d-block');
       } else {
         child.classList.add('animate__animated', 'animate__fadeOut');
         child.style.setProperty('--animate-duration', '0.1s');
-        child.style.display = 'none';
+        child.classList.add('d-none');
+        child.classList.remove('d-block');
       }
     });
   });
@@ -205,11 +208,13 @@ window.addEventListener('DOMContentLoaded', () => {
       ) {
         child.classList.remove('animate__animated', 'animate__fadeIn');
         child.style.setProperty('--animate-duration', '0.5s');
-        child.style.display = 'none';
+        child.classList.add('d-none');
+        child.classList.remove('d-block');
       } else {
         child.classList.remove('animate__animated', 'animate__fadeOut');
         child.style.setProperty('--animate-duration', '0.1s');
-        child.style.display = 'block';
+        child.classList.add('d-block');
+        child.classList.remove('d-none');
       }
     });
   });

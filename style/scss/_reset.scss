@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline-width: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $dark;
+}
+
+ol,
+ul {
+  list-style: none;
+}

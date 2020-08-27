@@ -1,6 +1,7 @@
 .header {
   background-color: $light;
   transition: $base-transition;
+  width: 100%;
   &__top {
     transition: $base-transition;
     padding: 10px 35px;
@@ -273,8 +274,8 @@
       &__logo {
         order: -1;
         flex: 1 0 100%;
-        text-align: center;
         margin-bottom: 10px;
+        place-items: center;
         img {
           max-width: 100%;
         }

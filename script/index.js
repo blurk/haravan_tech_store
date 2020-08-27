@@ -180,8 +180,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   /*Show seacrh bar when Toggle is clicked*/
   $('.header__mid__toggle__search').addEventListener('click', function () {
-    console.log('%cClicked', 'color: tomato;');
-
     $$('.header__mid > *').forEach((child) => {
       if (
         child.classList.contains('search__close') ||
@@ -217,5 +215,14 @@ window.addEventListener('DOMContentLoaded', () => {
         child.classList.remove('d-none');
       }
     });
+  });
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 55) {
+      $('.header__top').classList.add('d-none');
+      $('.header').classList.add('fixedHeader');
+    } else {
+      $('.header__top').classList.remove('d-none');
+      $('.header').classList.remove('fixedHeader');
+    }
   });
 });

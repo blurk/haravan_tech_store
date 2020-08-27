@@ -12,6 +12,7 @@ html {
   font-family: 'Heebo', sans-serif;
   scroll-behavior: smooth;
   overflow: overlay;
+  overflow-x: hidden;
 }
 
 .parent {
@@ -82,6 +83,7 @@ html {
     box-shadow: 0 0 20px 0 rgba(0, 0, 6, 0.05);
     border: 1px solid #e6e6e6;
     transition: all 300ms ease-in-out 100ms;
+    background-color: #fff;
   }
   &__menu-slideIn {
     top: 90%;
@@ -148,3 +150,16 @@ html {
 .d-none {
   display: none !important;
 }
+
+.fixedHeader {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-shadow: 0 0px 5px 2px rgba($dark, 0.2);
+  & > * {
+    margin: 0;
+  }
+}
+
+@import 'main';

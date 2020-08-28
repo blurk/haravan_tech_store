@@ -1,3 +1,52 @@
 main {
-  height: 1500px;
+  padding: 50px 0;
+  height: 1000px;
+}
+
+.carousel {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  @include background('../../assets/images/slideshow_1.jpg');
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .dots {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+  }
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: rgba($light, 0.6);
+    border-radius: 50%;
+    display: inline-block;
+    transition: $base-transition;
+    &:hover {
+      background-color: $primary;
+    }
+    &-active {
+      background-color: $primary;
+    }
+  }
+}
+
+@include respond-below(xs) {
+  .main {
+    .carousel {
+      height: 200px;
+      background-size: contain;
+      .dots {
+        padding-top: 5px;
+        background-color: rgba($dark, 0.4);
+      }
+    }
+  }
 }

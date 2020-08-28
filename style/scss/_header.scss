@@ -5,7 +5,6 @@
   &__top {
     transition: $base-transition;
     padding: 10px 35px;
-    margin: 0 auto;
     @include flexBox(row, space-between, center);
     @include font-size(14px);
     &__contact {

@@ -20,7 +20,7 @@
   <body>
     <div class="parent">
       <!-- HEADER -->
-      <header class="header">
+      <header id="header" class="header">
         <div class="header__top">
           <div class="header__top__contact animate__animated">
             <span class="header__top__contact__item">Liên hệ</span>
@@ -135,13 +135,23 @@
         </div>
       </header>
       <!-- MAIN -->
-      <main>Main</main>
+      <main class="main" id="main">
+        <section id="carousel" class="carousel animate__animated">
+          <a href="/products.html"></a>
+          <div class="dots">
+            <div class="dot dot-active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+          </div>
+        </section>
+      </main>
       <!-- FOOTER -->
       <footer>Footer</footer>
     </div>
 
     <!-- SCRIPT -->
     <script src="/script/index.js"></script>
-    <script></script>
+    <script src="/script/carousel.js"></script>
   </body>
 </html>

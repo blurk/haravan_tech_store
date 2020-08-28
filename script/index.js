@@ -1,8 +1,7 @@
+const $ = document.querySelector.bind(document);
+
+const $$ = document.querySelectorAll.bind(document);
 window.addEventListener('DOMContentLoaded', () => {
-  const $ = document.querySelector.bind(document);
-
-  const $$ = document.querySelectorAll.bind(document);
-
   /*
     re render header__bottom when its children height change
     @params {number}curHeight - total Height inside header__bottom
@@ -218,11 +217,15 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 55) {
+      $('.main').style.marginTop = '200px';
       $('.header__top').classList.add('d-none');
       $('.header').classList.add('fixedHeader');
+      $('.header').style.width = 'calc(100% + 17px)';
     } else {
+      $('.main').style.marginTop = '0';
       $('.header__top').classList.remove('d-none');
       $('.header').classList.remove('fixedHeader');
+      $('.header').style.width = '100%';
     }
   });
 });

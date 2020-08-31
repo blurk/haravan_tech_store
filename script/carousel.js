@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function changeImage(id) {
     $('#carousel').classList.add('animate__fadeOut');
     $('#carousel').classList.remove('animate__fadeIn');
-    $('#carousel').style.setProperty('--animate-duration', '0.2s');
+    $('#carousel').style.setProperty('--animate-duration', '0.1s');
 
     $('#carousel').addEventListener('animationend', () => {
       $('#carousel').style.backgroundImage = `url(${bgs[id]})`;

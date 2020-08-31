@@ -38,6 +38,100 @@ main {
   }
 }
 
+.gallery {
+  width: 80%;
+  padding: 0 8px;
+  margin: 50px auto;
+  &__header {
+    border-bottom: 2px solid $primary;
+    margin-bottom: 20px;
+    ul {
+      @include flexBox(row, start, center);
+      li {
+        padding: 6px 12px;
+        a {
+          text-transform: uppercase;
+          color: $primary;
+          font-weight: bold;
+          @include font-size(18px);
+        }
+      }
+      .tab-active {
+        background-color: $primary;
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+  &__body {
+    flex-wrap: wrap;
+    @include flexBox(row, center, center);
+  }
+  &__item {
+    flex-basis: 25%;
+    height: 350px;
+    padding: 16px 32px;
+    transition: $base-transition;
+    &:hover {
+      transform: translateY(-1%);
+      box-shadow: 1px 1px 6px rgba(#000, 0.2);
+    }
+    &__img {
+      width: 100%;
+    }
+    &__content {
+      flex: 1;
+    }
+    &__prices {
+      .price {
+        &-current {
+          font-weight: bold;
+          color: $primary;
+        }
+        &-before {
+          color: $dark;
+        }
+      }
+    }
+    &__buttons {
+      width: 100%;
+      padding: 0;
+      @include flexBox(column, center, center);
+      button {
+        width: 100%;
+        padding: 8px 24px;
+        margin: 5px 0;
+        background: $primary;
+        color: #fff;
+        border: 0;
+        cursor: pointer;
+        transition: $base-transition;
+        @include font-size(16px);
+        &:hover {
+          background-color: $secondary;
+        }
+      }
+    }
+  }
+  .sale {
+    position: relative;
+    &::before {
+      content: '-15%';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      background-color: $secondary;
+      color: #fff;
+      text-align: center;
+      width: 50px;
+      height: 25px;
+      border-radius: 2px;
+    }
+  }
+}
+
 @include respond-below(xs) {
   .main {
     .carousel {

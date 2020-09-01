@@ -131,6 +131,48 @@ main {
   }
 }
 
+.brands {
+  position: relative;
+  padding: 0 15rem;
+  text-align: center;
+  &__container {
+    width: 100%;
+    height: 100%;
+    padding: 0 50px 0 10px;
+    .brand__img__container {
+      width: 25%;
+      height: 100%;
+      .brand__img {
+        max-width: 100%;
+        height: 90%;
+      }
+    }
+  }
+  .controller {
+    position: absolute;
+    top: 40%;
+    @include font-size(16px);
+    cursor: pointer;
+    color: $light;
+    background: $dark;
+    padding: 8px 16px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: $base-transition;
+    &:hover {
+      color: $dark;
+      background: $light;
+    }
+  }
+  .left {
+    left: 8%;
+  }
+  .right {
+    right: 8%;
+  }
+}
+
 @include respond-below(xs) {
   .main {
     .carousel {
@@ -139,6 +181,18 @@ main {
       .dots {
         padding-top: 5px;
         background-color: rgba($dark, 0.4);
+      }
+    }
+
+    .brands {
+      &__container {
+        padding: 0;
+      }
+      .left {
+        left: 3%;
+      }
+      .right {
+        right: 3%;
       }
     }
   }

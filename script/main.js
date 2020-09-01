@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     curGallery.children[1].appendChild(cloneNode);
   }
 
-  /*Quick render products' section*/
+  /*Quick render products' sections*/
 
   const categories = [
     { name: 'Tủ Lạnh', color: '#D84040' },
@@ -32,34 +32,36 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const arrs = categories.map(({ name, color }, id) => {
-    const cloneNode = curGallery.cloneNode(true);
+    const clone = curGallery.cloneNode(true);
     /*Increase id*/
-    curGallery.id = `gallery${id + 2}`;
+    clone.id = `gallery${id + 2}`;
     /*Change backgroundColor of header*/
-    curGallery.querySelector(
+    clone.querySelector(
       '.gallery__header > ul > li'
     ).style.backgroundColor = color;
     /*Change backgroundColor of header border*/
-    curGallery.querySelector(
-      '.gallery__header'
-    ).style.borderBottomColor = color;
+    clone.querySelector('.gallery__header').style.borderBottomColor = color;
     /*Change backgroundColor of current price*/
 
-    curGallery
+    clone
       .querySelectorAll('.price-current')
       .forEach((price) => (price.style.color = color));
 
     /*Change backgroundColor of buttons*/
-    curGallery
+    clone
       .querySelectorAll('.gallery__item__buttons > button')
       .forEach((btn) => (btn.style.backgroundColor = color));
 
     /*Change name of header*/
-    curGallery.querySelector('.gallery__header > ul > li > a').innerHTML = name;
-    return cloneNode;
+    clone.querySelector('.gallery__header > ul > li > a').innerHTML = name;
+    return clone;
   });
 
-  arrs.forEach((item) => {
-    $('#products').appendChild(item);
-  });
+  let fragment = document.createDocumentFragment();
+
+  for (let item of arrs) {
+    fragment.append(item);
+  }
+
+  $('#products').append(fragment);
 });

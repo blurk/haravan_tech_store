@@ -220,12 +220,10 @@ window.addEventListener('DOMContentLoaded', () => {
       $('.main').style.marginTop = '200px';
       $('.header__top').classList.add('d-none');
       $('.header').classList.add('fixedHeader');
-      $('.header').style.width = 'calc(100% + 17px)';
     } else {
       $('.main').style.marginTop = '0';
       $('.header__top').classList.remove('d-none');
       $('.header').classList.remove('fixedHeader');
-      $('.header').style.width = '100%';
     }
   });
 });

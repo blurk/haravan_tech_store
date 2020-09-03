@@ -1,3 +1,134 @@
-footer {
-  background-color: rgba(255,0,0,0.5);
+.footer {
+  background-color: #232323;
+  padding: 20px 35px 40px;
+  @include flexBox(row, center, start);
+  color: #a1a1a1;
+  @include font-size(16px);
+  div {
+    flex-basis: 20%;
+  }
+  &__info {
+    padding: 20px;
+    img {
+      max-width: 100%;
+    }
+    p {
+      padding-right: 20px;
+    }
+  }
+  &__intro,
+  &__support {
+    ul {
+      margin-top: 10px;
+      li {
+        margin-top: 10px;
+        a {
+          transition: $base-transition;
+          color: #a1a1a1;
+          display: inline-block;
+          &:hover {
+            color: #fff;
+            transform: translateX(10%);
+          }
+        }
+      }
+    }
+  }
+  &__contact {
+    p > a {
+      color: $primary;
+    }
+    *:not(.footer__title) {
+      margin-top: 5px;
+      @include font-size(14px);
+    }
+  }
+  &__title {
+    text-transform: uppercase;
+    font-weight: bold;
+    @include font-size(18px);
+  }
+  &__certificate {
+    display: grid;
+    place-items: start;
+    padding: 0 20px;
+    span {
+      text-transform: uppercase;
+    }
+    img {
+      margin: 10px 0;
+    }
+    img:nth-child(2) {
+      width: 150px;
+    }
+    img:nth-child(4) {
+      width: 250px;
+    }
+  }
+}
+
+.copyright {
+  background-color: #1f1f1f;
+  padding: 10px 35px;
+  @include flexBox(row, space-between, center);
+  @include font-size(15px);
+  &__info {
+    p {
+      color: #fff;
+      a {
+        color: $primary;
+      }
+    }
+    .breadcrumb {
+      a {
+        color: $dark;
+        transition: $base-transition;
+        &:hover {
+          color: #a1a1a1;
+        }
+      }
+      span {
+        color: #fff;
+        margin: 0 2px;
+      }
+    }
+  }
+  &__contact {
+    color: $light;
+  }
+}
+
+@include respond-below(lg) {
+  .footer {
+    div {
+      margin: 10px 0;
+      flex-basis: 25%;
+    }
+    flex-wrap: wrap;
+  }
+}
+
+@include respond-below(md) {
+  .footer {
+    div {
+      flex-basis: 30%;
+    }
+    flex-wrap: wrap;
+  }
+  .copyright {
+    flex-direction: column;
+    &__contact {
+      margin-top: 20px;
+    }
+  }
+}
+
+@include respond-below(xs) {
+  .footer {
+    flex-direction: column;
+    justify-content: start;
+    &__certificate {
+      padding: 0;
+    }
+  }
 }

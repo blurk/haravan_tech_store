@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/style/css/index.min.css" />
   </head>
   <body>
-    < class="parent">
+    <div class="parent">
       <!-- HEADER -->
       <header id="header" class="header">
         <!-- TOP -->
@@ -198,7 +198,13 @@
 
           <div class="contact-form">
             <form action="get">
-              <input type="email" name="email" id="email" placeholder="Nhập email của bạn" required />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Nhập email của bạn"
+                required
+              />
               <button type="submit">Đăng ký</button>
             </form>
           </div>
@@ -220,9 +226,84 @@
         </section>
       </main>
       <!-- FOOTER -->
-      <footer>
-        
+      <footer class="footer" id="footer">
+        <div class="footer__info">
+          <img src="/assets/images/logo.png" alt="logo" />
+          <p>Chúng tôi tin chất lượng là dịch vụ tốt nhất.</p>
+        </div>
+        <div class="footer__intro">
+          <span class="footer__title">Giới thiệu</span>
+          <ul>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Trang chủ</a></li>
+            <li>
+              <i class="fa fa-angle-right"></i> <a href="#">Giới thiệu</a>
+            </li>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Sản phẩm</a></li>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer__support">
+          <span class="footer__title">Hỗ trợ khách hàng</span>
+          <ul>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Tìm kiếm</a></li>
+            <li>
+              <i class="fa fa-angle-right"></i> <a href="#">Giới thiệu</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <p class="footer__title">Liên hệ</p>
+          <p>Kênh mua sắm trực tuyến giá tốt hàng đầu Việt Nam</p>
+          <p>
+            <i class="fa fa-map-marked-alt"></i> 61/2 Quang Trung, P.10 Q. Gò
+            Vấp, TP. HCM
+          </p>
+          <p>
+            <i class="fa fa-phone"></i>
+            <a
+              href="tel: (91) 8547 632521
+            "
+              >(91) 8547 632521</a
+            >
+          </p>
+          <p>
+            <i class="fa fa-envelope"></i>
+            <a
+              href="mailto: hello@egany.com
+            "
+            >
+              hello@egany.com
+            </a>
+          </p>
+        </div>
+        <div class="footer__certificate">
+          <span>Được chứng nhận</span>
+          <img src="./assets/images/register_img.png" alt="certificate" />
+          <span>Hình thức thanh toán</span>
+          <img src="./assets/images/payment_img.png" alt="payment methods" />
+        </div>
       </footer>
+      <!-- COPYRIGHT -->
+      <section class="copyright" id="copyright">
+        <div class="copyright__info">
+          <p>
+            © Bản quyền thuộc về <a href="https://egany.com/">EGANY</a>. Cung
+            cấp bởi
+            <a href="https://www.haravan.com/?ref=egany">Haravan</a>
+          </p>
+          <div class="breadcrumb">
+            <a href="./index.html">Trang chủ</a><span>/</span>
+            <a href="./products.html">Sản phẩm</a><span>/</span>
+            <a href="./about.html">Giới thiệu</a><span>/</span>
+            <a href="./blog.html">Blog</a>
+          </div>
+        </div>
+        <div class="copyright__contact">
+          <p>EGANY Co.Ltd - 61/2 Quang Trung, Q. Gò Vấp, Tp.HCM</p>
+          <p>Email: hello@egany.com</p>
+          <p>Hotline: 1900.636.099</p>
+        </div>
+      </section>
     </div>
 
     <!-- SCRIPT -->

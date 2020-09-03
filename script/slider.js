@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  /*render images to HTML*/
   const src = [
     '/assets/images/popular_brand_img_1.png',
     '/assets/images/popular_brand_img_2.png',
@@ -9,51 +10,69 @@ document.addEventListener('DOMContentLoaded', () => {
     '/assets/images/popular_brand_img_10.png',
   ];
 
-  let fragment = document.createDocumentFragment();
+  function render() {
+    let fragment = document.createDocumentFragment();
 
-  const images = src.map((src) => {
-    let div = document.createElement('div');
-    let img = document.createElement('img');
-    img.src = src;
-    img.classList.add('brand__img');
+    let n = null;
 
-    div.classList.add('brand__img__container');
+    if (window.innerWidth > 992) {
+      n = 4;
+    } else if (window.innerWidth > 768) {
+      n = 3;
+    } else if (window.innerWidth > 576) {
+      n = 2;
+    } else {
+      n = 1;
+    }
 
-    div.appendChild(img);
-    return div;
-  });
+    const images = src.slice(0, n).map((src) => {
+      let img = document.createElement('img');
+      img.src = src;
+      img.classList.add('brand__img', 'animate__animated');
 
-  images.forEach((img) => {
-    fragment.appendChild(img);
-  });
+      return img;
+    });
 
-  $('.brands__container').append(fragment);
+    images.forEach((img) => {
+      fragment.appendChild(img);
+    });
+    $('.brands__container').innerHTML = '';
+    $('.brands__container').append(fragment);
+  }
 
-  const slider = tns({
-    container: '.brands__container',
-    slideBy: 1,
-    speed: 600,
-    swipeAngle: true,
-    controlsContainer: '.controller__container',
-    center: true,
-    responsive: {
-      576: {
-        items: 1,
-      },
-      768: {
-        items: 2,
-      },
-      992: {
-        items: 3,
-      },
-      1200: {
-        items: 4,
-      },
+  render();
+
+  /*Handle slider sliding*/
+  const left = $('#sliderLeftController');
+  const right = $('#sliderRightController');
+
+  left.addEventListener(
+    'click',
+    () => {
+      src.push(src.shift());
+      render();
+      [...$('.brands__container').children].forEach((child) => {
+        child.classList.add('animate__fadeIn');
+        child.style.setProperty('--animate-duration', '0.4s');
+      });
     },
+    true
+  );
+
+  right.addEventListener(
+    'click',
+    () => {
+      src.unshift(src.pop());
+      render();
+      [...$('.brands__container').children].forEach((child) => {
+        child.classList.add('animate__fadeIn');
+        child.style.setProperty('--animate-duration', '0.4s');
+      });
+    },
+    true
+  );
+
+  window.addEventListener('resize', () => {
+    render();
   });
 });
-
-// xs: 576px,
-// sm: 768px,
-// md: 992px,
-// lg: 1200px,

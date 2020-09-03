@@ -14,12 +14,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
     />
-    <!-- TINY SLIDER -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css"
-    />
-
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="/style/css/index.min.css" />
   </head>
@@ -187,13 +181,12 @@
         <!-- POPULAR BRANDS -->
         <section id="brands" class="brands">
           <div class="brands__container"></div>
-          <div class="controller__container">
-            <div class="controller left">
-              <i class="fa fa-angle-left"></i>
-            </div>
-            <div class="controller right">
-              <i class="fa fa-angle-right"></i>
-            </div>
+
+          <div class="controller left" id="sliderLeftController">
+            <i class="fa fa-angle-left"></i>
+          </div>
+          <div class="controller right" id="sliderRightController">
+            <i class="fa fa-angle-right"></i>
           </div>
         </section>
       </main>
@@ -202,7 +195,7 @@
     </div>
 
     <!-- SCRIPT -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
     <!-- MY SCRIPT -->
     <script src="/script/index.js"></script>
     <script src="/script/carousel.js"></script>

@@ -64,4 +64,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   $('#products').append(fragment);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 110) {
+      $('#quickContact').classList.remove('quickContact-unactive');
+      $('#quickContact').classList.add('quickContact-active');
+
+      $('#toTopBtn').classList.remove('toTopBtn-unactive');
+      $('#toTopBtn').classList.add('toTopBtn-active');
+    } else {
+      $('#quickContact').classList.remove('quickContact-active');
+      $('#quickContact').classList.add('quickContact-unactive');
+
+      $('#toTopBtn').classList.remove('toTopBtn-active');
+      $('#toTopBtn').classList.add('toTopBtn-unactive');
+    }
+  });
+
+  $('#toTopBtn').addEventListener(
+    'click',
+    () => {
+      window.scrollTo(0, 0);
+    },
+    true
+  );
 });

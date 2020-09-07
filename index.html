@@ -170,10 +170,8 @@
                     <div class="price-current">10,000,000₫</div>
                   </div>
                   <div class="gallery__item__buttons">
-                    <button class="addToCart" id="addToCart">
-                      Thêm vào giỏ
-                    </button>
-                    <button class="quickView" id="quickView">Xem nhanh</button>
+                    <button class="addToCart">Thêm vào giỏ</button>
+                    <button class="quickView">Xem nhanh</button>
                   </div>
                 </div>
               </div>
@@ -324,6 +322,48 @@
         <i class="fa fa-angle-up"></i>
       </div>
     </div>
+    <!-- MODAL OF QUICK VIEW PRODUCT -->
+
+    <div class="modal">
+      <div class="modal__content">
+        <!-- HEADER -->
+        <div class="modal__content__header">
+          <h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+            omnis!
+          </h1>
+        </div>
+        <div class="modal__content__main">
+          <!-- LEFT -->
+          <div class="modal__content__left">
+            <div class="view">
+              <img src="" alt="product image" class="modal__content__img" />
+            </div>
+            <div class="view__controller"></div>
+          </div>
+          <!-- RIGHT -->
+          <div class="modal__content__right">
+            <div class="modal__content__right__prices"></div>
+            <div class="modal__content__right__interact">
+              <div class="changeQuantity">
+                <div>
+                  <span class="minus">-</span>
+                  <span class="value">1</span>
+                  <span class="plus">+</span>
+                </div>
+                <button class="changeQuantity__addToCart">thêm vào giỏ</button>
+              </div>
+              <button class="changeQuantity__buyNow">mua ngay</button>
+            </div>
+            <p class="modal__content__right__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Doloribus, obcaecati vero? In tempora doloribus magnam ipsum
+              cumque ipsa debitis commodi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- SCRIPT -->
 
@@ -332,5 +372,6 @@
     <script src="/script/carousel.js"></script>
     <script src="/script/main.js"></script>
     <script src="/script/slider.js"></script>
+    <script src="/script/quickView.js"></script>
   </body>
 </html>

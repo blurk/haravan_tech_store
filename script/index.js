@@ -1,6 +1,7 @@
 const $ = document.querySelector.bind(document);
 
 const $$ = document.querySelectorAll.bind(document);
+
 window.addEventListener('DOMContentLoaded', () => {
   /*
     re render header__bottom when its children height change

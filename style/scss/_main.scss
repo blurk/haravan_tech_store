@@ -302,6 +302,150 @@ $icons: (
   }
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &__content {
+    background-color: $light;
+    margin: 5% auto;
+    width: 60%;
+    border: 0 solid;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 6, 0.05);
+    &__header {
+      padding: 20px 10px 5px;
+    }
+    &__main {
+      background-color: #fff;
+      @include flexBox(row, center, center);
+      padding: 10px 20px;
+      margin: 10px 10px;
+    }
+    &__left,
+    &__right {
+      flex-basis: 50%;
+      @include flexBox(column, center, start);
+    }
+    &__right {
+      * {
+        flex-basis: 30%;
+      }
+      &__interact {
+        width: 100%;
+        .changeQuantity {
+          @include flexBox(row, space-between, center);
+          & > div {
+            margin: -12px 0;
+            height: 100%;
+            flex-basis: 50%;
+            span {
+              padding: 6px 0;
+              transition: $base-transition;
+              display: inline-block;
+              width: 50px;
+              height: 50px;
+              height: 100%;
+              text-align: center;
+              &.value {
+                border-top: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+                width: 40%;
+                margin: 0 -5px;
+              }
+              &.minus,
+              &.plus {
+                border: 1px solid #eee;
+                cursor: pointer;
+                color: $dark;
+                &:hover {
+                  color: $light;
+                  background-color: $dark;
+                }
+              }
+            }
+          }
+        }
+        button {
+          text-transform: uppercase;
+          color: #fff;
+          border: none;
+          padding: 12px 24px;
+          cursor: pointer;
+          transition: $base-transition;
+          font-weight: bold;
+          @include font-size(18px);
+          &:hover {
+            filter: brightness(1.1);
+          }
+          &.changeQuantity__addToCart {
+            background-color: #209e00;
+            flex-basis: 50%;
+          }
+          &.changeQuantity__buyNow {
+            background-color: #f8232c;
+            width: 100%;
+            margin: 10px 0;
+          }
+        }
+      }
+      &__prices {
+        font-size: 28px;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid $light;
+        margin-bottom: 10px;
+        .price {
+          &-current {
+            font-weight: bold;
+          }
+          &-before {
+            color: $dark;
+          }
+        }
+      }
+      &__description {
+        margin-top: 10px;
+        border-top: 1px solid $light;
+        padding: 10px 0;
+      }
+    }
+    &__left {
+      .view {
+        width: 300px;
+        height: 200px;
+        margin: 0 auto 10px;
+        img {
+          display: block;
+          width: 100%;
+        }
+        &__controller {
+          @include flexBox(row, start, center);
+          img {
+            transition: $base-transition;
+            flex-basis: 20%;
+            max-width: 18%;
+            margin: 0 1px;
+            border: 3px solid $light;
+            border-radius: 2px;
+            cursor: pointer;
+            &:hover {
+              transform: scale(1.01);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @include respond-below(lg) {
   .contact {
     flex-direction: column;

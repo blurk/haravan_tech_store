@@ -309,8 +309,7 @@ $icons: (
   left: 0;
   top: 0;
   width: 100%;
-  height: 100vh;
-  overflow-y: hidden;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
 
   &__content {
@@ -454,6 +453,43 @@ $icons: (
     }
     .contact-form {
       display: block;
+    }
+  }
+}
+
+@include respond-below(md) {
+  .modal {
+    overflow-y: auto;
+
+    &__content {
+      &__header h1 {
+        @include font-size(20px);
+      }
+      width: 90%;
+      &__main {
+        flex-direction: column;
+      }
+      &__left {
+        .view {
+          width: 90%;
+          height: auto;
+        }
+      }
+      &__right {
+        &__interact {
+          .changeQuantity {
+            div {
+              width: 100%;
+              text-align: center;
+              margin-bottom: 20px;
+            }
+            flex-direction: column;
+            &__addToCart {
+              width: 100%;
+            }
+          }
+        }
+      }
     }
   }
 }

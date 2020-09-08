@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Store</title>
+    <!-- FONTAWESOME -->
+    <link
+      rel="stylesheet"
+      href="/assets/fonts/fontawesome-free-5.14.0-web/css/all.min.css"
+    />
+    <!-- ANIMATE CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/style/css/index.min.css" />
+  </head>
+  <body>
+    <div class="parent" id="wrapper">
+      <!-- HEADER -->
+      <header id="header" class="header">
+        <!-- TOP -->
+        <div class="header__top">
+          <div class="header__top__contact animate__animated">
+            <span class="header__top__contact__item">Liên hệ</span>
+            <div class="header__top__contact__item">
+              <i class="fa fa-phone"></i>
+              <a href="tel:19001267">19001267</a>
+            </div>
+            <div class="header__top__contact__item">
+              <i class="fa fa-envelope"></i>
+              <a href="mail:hello@egany.com"> hello@egany.com</a>
+            </div>
+          </div>
+          <nav class="header__top__nav animate__animated">
+            <ul class="navbar">
+              <li class="navbar__nav">
+                <a class="navbar__nav__link" href="/sign.html"
+                  >Đăng nhập/Đăng ký</a
+                >
+              </li>
+              <li class="navbar__nav">
+                <a class="navbar__nav__link" href="/products.html">Sản phẩm</a>
+              </li>
+              <li class="navbar__nav">
+                <a class="navbar__nav__link" href="/about.html">Giới thiệu</a>
+              </li>
+              <li class="navbar__nav">
+                <a class="navbar__nav__link" href="/blog.html">Blog </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__toggler" data-click="not-span">
+          <span class="fa fa-angle-down"></span>
+        </div>
+        <!-- MID -->
+        <div class="header__mid">
+          <div class="header__mid__logo">
+            <a href="/"><img src="/assets/images/logo.png" alt="Logo" /></a>
+          </div>
+          <div class="header__mid__toggle__search">
+            <i class="fa fa-search"></i>
+          </div>
+          <i class="fa fa-arrow-left search__close"></i>
+          <div class="header__mid__search">
+            <form action="#" method="get">
+              <input
+                type="text"
+                name="seacrh"
+                id="headerSearchBar"
+                placeholder="Bạn muốn tìm gì?"
+              />
+              <button type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+          <div class="header__mid__cart">
+            <a
+              href="/cart.html"
+              class="fab fa-opencart header__mid__cart__icon"
+            >
+              <div class="cart__count" id="cartCount">0</div>
+            </a>
+            <div class="header__mid__cart__text">
+              <div class="cart__titile">Giỏ hàng</div>
+              <div class="cart__total" id="cartTotal">0</div>
+            </div>
+          </div>
+          <i
+            class="fa fa-bars header__bottom__toggler"
+            data-span="not-span"
+          ></i>
+        </div>
+        <!-- BOTTOM -->
+        <div class="header__bottom">
+          <nav class="header__bottom__nav">
+            <ul class="navbar">
+              <li class="navbar__nav dropdown">
+                <div class="navbar__nav__item">
+                  <a class="navbar__nav__link" href="/products.html">Tivi</a>
+                  <span class="fa fa-angle-down"></span>
+                </div>
+                <ul class="dropdown__menu">
+                  <li class="dropdown__item">
+                    <a href="/products.html" class="dropdown__item__link"
+                      >Lorem, ipsum dolor.</a
+                    >
+                  </li>
+                  <li class="dropdown__item">
+                    <a href="/products.html" class="dropdown__item__link"
+                      >Lorem, ipsum dolor.</a
+                    >
+                  </li>
+                  <li class="dropdown__item">
+                    <a href="/products.html" class="dropdown__item__link"
+                      >Lorem, ipsum dolor.</a
+                    >
+                  </li>
+                  <li class="dropdown__item">
+                    <a href="/products.html" class="dropdown__item__link"
+                      >Lorem, ipsum dolor.</a
+                    >
+                  </li>
+                  <li class="dropdown__item">
+                    <a href="/products.html" class="dropdown__item__link"
+                      >Lorem, ipsum dolor.</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- MAIN -->
+      <main class="main" id="main">
+        <!-- BREADCRUMBS -->
+        <section class="breadcrumbs" id="breadcrumbs">
+          <ul>
+            <li><a href="./index.html">Trang chủ</a></li>
+            <li class="breadcrumbs__active">
+              <a href=".">Giới thiệu</a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- SIGN -->
+        <section class="sign" id="sign"></section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact">
+          <div class="title">
+            <i class="far fa-envelope"></i>
+            <span>ĐĂNG KÝ EMAIL ĐỂ NHẬN NGAY VOUCHER</span>
+          </div>
+
+          <div class="contact-form">
+            <form action="get">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Nhập email của bạn"
+                required
+              />
+              <button type="submit">Đăng ký</button>
+            </form>
+          </div>
+
+          <div class="share">
+            <a href="#" class="icon facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="icon twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="icon pinterest">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+            <a href="#" class="icon rss">
+              <i class="fa fa-rss"></i>
+            </a>
+          </div>
+        </section>
+      </main>
+      <!-- FOOTER -->
+      <footer class="footer" id="footer">
+        <div class="footer__info">
+          <img src="/assets/images/logo.png" alt="logo" />
+          <p>Chúng tôi tin chất lượng là dịch vụ tốt nhất.</p>
+        </div>
+        <div class="footer__intro">
+          <span class="footer__title">Giới thiệu</span>
+          <ul>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Trang chủ</a></li>
+            <li>
+              <i class="fa fa-angle-right"></i> <a href="#">Giới thiệu</a>
+            </li>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Sản phẩm</a></li>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer__support">
+          <span class="footer__title">Hỗ trợ khách hàng</span>
+          <ul>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Tìm kiếm</a></li>
+            <li>
+              <i class="fa fa-angle-right"></i> <a href="#">Giới thiệu</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <p class="footer__title">Liên hệ</p>
+          <p>Kênh mua sắm trực tuyến giá tốt hàng đầu Việt Nam</p>
+          <p>
+            <i class="fa fa-map-marked-alt"></i> 61/2 Quang Trung, P.10 Q. Gò
+            Vấp, TP. HCM
+          </p>
+          <p>
+            <i class="fa fa-phone"></i>
+            <a
+              href="tel: (91) 8547 632521
+            "
+              >(91) 8547 632521</a
+            >
+          </p>
+          <p>
+            <i class="fa fa-envelope"></i>
+            <a
+              href="mailto: hello@egany.com
+            "
+            >
+              hello@egany.com
+            </a>
+          </p>
+        </div>
+        <div class="footer__certificate">
+          <span>Được chứng nhận</span>
+          <img src="./assets/images/register_img.png" alt="certificate" />
+          <span>Hình thức thanh toán</span>
+          <img src="./assets/images/payment_img.png" alt="payment methods" />
+        </div>
+      </footer>
+      <!-- COPYRIGHT -->
+      <section class="copyright" id="copyright">
+        <div class="copyright__info">
+          <p>
+            © Bản quyền thuộc về <a href="https://egany.com/">EGANY</a>. Cung
+            cấp bởi
+            <a href="https://www.haravan.com/?ref=egany">Haravan</a>
+          </p>
+          <div class="breadcrumb">
+            <a href="./index.html">Trang chủ</a><span>/</span>
+            <a href="./products.html">Sản phẩm</a><span>/</span>
+            <a href="./about.html">Giới thiệu</a><span>/</span>
+            <a href="./blog.html">Blog</a>
+          </div>
+        </div>
+        <div class="copyright__contact">
+          <p>EGANY Co.Ltd - 61/2 Quang Trung, Q. Gò Vấp, Tp.HCM</p>
+          <p>Email: hello@egany.com</p>
+          <p>Hotline: 1900.636.099</p>
+        </div>
+      </section>
+
+      <!-- QUICK CONTACT -->
+      <div class="quickContact" id="quickContact">
+        <a href="tel:+19000000" class="quickContact__phone">
+          <i class="fa fa-phone"></i>
+          <p>Hotline</p>
+          <p>1900000</p>
+        </a>
+        <a href="#" class="quickContact__facebook">
+          <i class="fab fa-facebook-f"></i>
+          <p>Facebook</p>
+        </a>
+      </div>
+      <!-- TO TOP -->
+      <div class="toTopBtn" id="toTopBtn">
+        <i class="fa fa-angle-up"></i>
+      </div>
+    </div>
+    <!-- MODAL OF QUICK VIEW PRODUCT -->
+
+    <div class="modal">
+      <div class="modal__content">
+        <!-- HEADER -->
+        <div class="modal__content__header">
+          <h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+            omnis!
+          </h1>
+        </div>
+        <div class="modal__content__main">
+          <!-- LEFT -->
+          <div class="modal__content__left">
+            <div class="view">
+              <img src="" alt="product image" class="modal__content__img" />
+            </div>
+            <div class="view__controller"></div>
+          </div>
+          <!-- RIGHT -->
+          <div class="modal__content__right">
+            <div class="modal__content__right__prices"></div>
+            <div class="modal__content__right__interact">
+              <div class="changeQuantity">
+                <div>
+                  <span class="minus">-</span>
+                  <span class="value">1</span>
+                  <span class="plus">+</span>
+                </div>
+                <button class="changeQuantity__addToCart">thêm vào giỏ</button>
+              </div>
+              <button class="changeQuantity__buyNow">mua ngay</button>
+            </div>
+            <p class="modal__content__right__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Doloribus, obcaecati vero? In tempora doloribus magnam ipsum
+              cumque ipsa debitis commodi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT -->
+
+    <!-- MY SCRIPT -->
+    <script src="/script/index.js"></script>
+    <script src="/script/quickView.js"></script>
+  </body>
+</html>

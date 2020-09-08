@@ -1,0 +1,27 @@
+.about {
+  padding: 35px;
+  width: 80%;
+  p,
+  ul > li {
+    color: $dark;
+  }
+  p {
+    &.about__title {
+      margin: 10px 0;
+    }
+    &.about__end {
+      margin-left: 35px;
+      a {
+        transition: $base-transition;
+        color: $primary;
+        &:hover {
+          filter: brightness(1.2);
+        }
+      }
+    }
+  }
+  ul > li {
+    list-style: initial;
+    margin-left: 35px;
+  }
+}

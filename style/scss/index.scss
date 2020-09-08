@@ -174,3 +174,39 @@ html {
 @import 'main';
 
 @import 'footer';
+
+.breadcrumbs {
+  display: block;
+  padding: 0;
+  padding-left: 35px;
+  ul {
+    li {
+      display: inline-block;
+      a {
+        @include font-size(15px);
+        color: $dark;
+      }
+      &:not(.breadcrumbs__active) {
+        &::after {
+          content: '/';
+          margin: 0 5px;
+        }
+        &:hover {
+          a {
+            transition: $base-transition;
+            color: $primary;
+          }
+        }
+      }
+      &.breadcrumbs__active {
+        a {
+          color: #aaa;
+          cursor: text;
+        }
+      }
+    }
+  }
+}
+
+/*Other pages*/
+@import 'blog';

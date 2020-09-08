@@ -138,6 +138,43 @@
       </header>
       <!-- MAIN -->
       <main class="main" id="main">
+        <!-- BREADCRUMBS -->
+        <section class="breadcrumbs" id="breadcrumbs">
+          <ul>
+            <li><a href="./index.html">Trang chủ</a></li>
+            <li class="breadcrumbs__active">
+              <a href=".">Tin Tức</a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- CONTENT -->
+        <section class="content" id="content">
+          <div class="content__main">
+            <span class="notification"></span>
+          </div>
+          <aside class="content__sidebar">
+            <div class="content__sidebar__item content__sidebar__categories">
+              <div class="content__sidebar__item__header">Danh mục</div>
+              <div class="content__sidebar__item__main"></div>
+            </div>
+            <div class="content__sidebar__item content__sidebar__latest">
+              <div class="content__sidebar__item__header">
+                Bài viết mới nhất
+              </div>
+              <div class="content__sidebar__item__main"></div>
+            </div>
+            <div
+              class="content__sidebar__item content__sidebar__facebook"
+            ></div>
+            <div class="content__sidebar__item content__sidebar__tags">
+              <div class="content__sidebar__item__header">Tags</div>
+              <div class="content__sidebar__item__main"></div>
+            </div>
+          </aside>
+        </section>
+
+        <!-- CONTACT -->
         <section id="contact" class="contact">
           <div class="title">
             <i class="far fa-envelope"></i>
@@ -317,7 +354,7 @@
 
     <!-- MY SCRIPT -->
     <script src="/script/index.js"></script>
-
     <script src="/script/quickView.js"></script>
+    <script src="/script/blog.js"></script>
   </body>
 </html>

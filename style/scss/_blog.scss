@@ -1,0 +1,94 @@
+.content {
+  padding: 0 35px;
+  @include flexBox(row, space-between, start);
+  &__main {
+    width: calc(100% * 9 / 12);
+  }
+  &__sidebar {
+    width: calc(100% * 3 / 12);
+    &__item {
+      display: block;
+      border: 1px solid $light;
+      margin: 10px 0;
+      &__header {
+        background-color: $primary;
+        color: #fff;
+        padding: 10px;
+      }
+      &__main {
+        ul {
+          li {
+            padding: 5px 10px;
+            a {
+              transition: $base-transition;
+              color: $dark;
+              @include font-size(14px);
+              i {
+                margin-right: 5px;
+              }
+            }
+            &:hover {
+              a {
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__facebook {
+      background-color: $primary;
+      width: 100%;
+      height: 330px;
+      position: relative;
+      &::after {
+        content: 'Facebook widget here';
+        color: $light;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include font-size(15px);
+      }
+    }
+    &__latest,
+    &__tags {
+      .content__sidebar__item__main {
+        height: 10px;
+      }
+    }
+  }
+}
+
+@include respond-below(lg) {
+  .content {
+    &__main {
+      width: calc(100% * 8 / 12);
+    }
+    &__sidebar {
+      width: calc(100% * 4 / 12);
+    }
+  }
+}
+
+@include respond-below(md) {
+  .content {
+    flex-direction: column;
+    &__main {
+      width: 100%;
+    }
+    &__sidebar {
+      width: 100%;
+    }
+  }
+}
+
+.notification {
+  display: block;
+  margin-top: 10px;
+  &::after {
+    content: 'Chưa có bài viết nào trong mục này';
+    @include font-size(14px);
+    color: $dark;
+  }
+}

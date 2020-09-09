@@ -143,13 +143,85 @@
           <ul>
             <li><a href="./index.html">Trang chủ</a></li>
             <li class="breadcrumbs__active">
-              <a href=".">Giới thiệu</a>
+              <a href=".">Tài khoản</a>
             </li>
           </ul>
         </section>
 
         <!-- SIGN -->
-        <section class="sign" id="sign"></section>
+        <section class="sign" id="sign">
+          <div class="container" id="container">
+            <div class="form-container sign-in-container d-block">
+              <form action="#">
+                <h1>Đăng nhập</h1>
+                <div class="social-container">
+                  <a href="#" class="social"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" class="social"
+                    ><i class="fab fa-google-plus-g"></i
+                  ></a>
+                  <a href="#" class="social"><i class="fab fa-twitter"></i></a>
+                </div>
+                <span>hoặc sử dụng tài khoản của bạn</span>
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Mật khẩu" required />
+                <div class="navLink">
+                  <a href="#" id="forgot">Quên mật khẩu?</a>
+                  <a href="#" id="signUp">Đăng ký</a>
+                </div>
+                <button>Đăng nhập</button>
+              </form>
+            </div>
+            <div class="form-container sign-up-container d-none">
+              <form action="#">
+                <h1>Tạo tài khoản</h1>
+                <div class="social-container">
+                  <a href="#" class="social"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" class="social"
+                    ><i class="fab fa-google-plus-g"></i
+                  ></a>
+                  <a href="#" class="social"><i class="fab fa-twitter"></i></a>
+                </div>
+                <span>hoặc dùng email để đăng ký</span>
+                <input type="text" name="name" placeholder="Tên" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Mật khẩu"
+                  required
+                />
+                <input
+                  type="password"
+                  name="repassword"
+                  placeholder="Nhập lại mật khẩu"
+                  required
+                />
+
+                <div class="navLink">
+                  <label for="isEmailed"
+                    >Nhận mail quảng cáo
+                    <input type="checkbox" name="isEmailed" id="isEmailed" />
+                  </label>
+                  <a href="#" id="signIn">Đăng nhập</a>
+                </div>
+                <button>Đăng ký</button>
+              </form>
+            </div>
+
+            <div class="form-container forgot-container d-none">
+              <form action="#">
+                <h1>Quên mật khẩu</h1>
+                <input type="email" placeholder="Nhập Email của bạn" required />
+                <a href="">Quay lại đăng nhập</a>
+                <button>Lấy lại mật khẩu</button>
+              </form>
+            </div>
+          </div>
+        </section>
 
         <!-- CONTACT -->
         <section id="contact" class="contact">
@@ -332,5 +404,6 @@
     <!-- MY SCRIPT -->
     <script src="/script/index.js"></script>
     <script src="/script/quickView.js"></script>
+    <script src="/script/sign.js"></script>
   </body>
 </html>

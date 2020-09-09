@@ -33,7 +33,11 @@
     padding: 12px 45px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: transform 80ms ease-in;
+    transition: $base-transition;
+    cursor: pointer;
+    &:hover {
+      background-color: $secondary;
+    }
     &:active {
       transform: scale(0.95);
     }
@@ -67,11 +71,12 @@
     background-color: #fff;
     border-radius: 10px;
     margin: 10px auto;
+    width: 100%;
     @include flexBox(column, center, center);
 
     .form-container {
-      height: 430px;
       width: 50%;
+      height: 430px;
     }
 
     .sign-up-container {
@@ -106,6 +111,11 @@
     margin: 0 5px;
     height: 40px;
     width: 40px;
+    transition: $base-transition;
+    &:hover {
+      background-color: $secondary;
+      color: #fff;
+    }
   }
 
   .navLink {
@@ -115,6 +125,20 @@
       @include font-size(15px);
       margin: 0 30px;
       white-space: nowrap;
+      transition: $base-transition;
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+@include respond-below(md) {
+  .sign {
+    .container {
+      .form-container {
+        width: 100%;
+      }
     }
   }
 }

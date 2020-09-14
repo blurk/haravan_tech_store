@@ -120,6 +120,45 @@
       }
     }
   }
+  //*PAGINATION
+  &__pagination {
+    margin: 10px 0;
+    @include flexBox(row, center, center);
+    &__item {
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid $light;
+      transition: $base-transition;
+      color: $primary;
+      &:hover {
+        background-color: rgba($dark, 0.1);
+      }
+    }
+
+    &__next {
+      border-left: none !important;
+    }
+    &__prev {
+      border-right: none !important;
+    }
+  }
+}
+
+/*For paginate*/
+.page-active {
+  color: white !important;
+  background-color: $primary !important;
+}
+
+.control-muted {
+  cursor: not-allowed;
+  color: $dark;
+  &:hover {
+    background-color: #fff;
+  }
 }
 
 /*================================ACCORDION CLASS=================================*/

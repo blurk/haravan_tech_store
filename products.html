@@ -143,14 +143,69 @@
           <ul>
             <li><a href="./index.html">Trang chủ</a></li>
             <li class="breadcrumbs__active">
-              <a href=".">Sản phẩm</a>
+              <a href=".">Tất cả sản phẩm</a>
             </li>
           </ul>
         </section>
 
-        <!-- PRODUCTS -->
+        <!-- BANNER -->
+        <section class="banner" id="banner">
+          <img src="/assets/images/col_all_banner.jpg" alt="banner image" />
+        </section>
 
-        <section class="products" id="products"></section>
+        <!-- PRODUCTS -->
+        <section class="products" id="products">
+          <main class="products__main">
+            <div class="products__main__header">
+              <div class="products__count">
+                Có <span id="productsCount"></span> sản phẩm
+              </div>
+              <div class="products__sort">
+                <form action="" method="get">
+                  <label for="sort">Sắp xếp theo</label>
+                  <select name="sort" id="sort">
+                    <option value="">Sản phẩm nổi bật</option>
+                    <option value="priceASC">Giá:Tăng dần</option>
+                    <option value="priceDESC">Giá: Giảm dần</option>
+                    <option value="az">Tên: A-Z</option>
+                    <option value="za">Tên: Z - A</option>
+                    <option value="oldest">Cũ nhất</option>
+                    <option value="latest">Mới nhất</option>
+                    <option value="best">Bán chạy nhất</option>
+                  </select>
+                </form>
+              </div>
+            </div>
+            <div class="products__main__body">
+              <div class="gallery__item">
+                <div class="gallery__item__img">
+                  <img src="/assets/images/product_01.jpg" alt="tivi" />
+                </div>
+                <div class="gallery__item__content">
+                  <div class="gallery__item__title">
+                    Lorem ipsum dolor sit amet.
+                  </div>
+                  <div class="gallery__item__subtitle">Lorem, ipsum.</div>
+                  <div class="gallery__item__prices">
+                    <div class="price-current">10,000,000₫</div>
+                  </div>
+                  <div class="gallery__item__buttons">
+                    <button class="addToCart">Thêm vào giỏ</button>
+                    <button class="quickView">Xem nhanh</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+          <aside class="products__aside">
+            <div class="products__aside__items">
+              <div class="products__aside__header accordion">
+                <h3>Lọc sản phẩm <i class="fa fa-angle-up"></i></h3>
+              </div>
+              <div class="products__aside__body"></div>
+            </div>
+          </aside>
+        </section>
 
         <!-- CONTACT -->
         <section id="contact" class="contact">
@@ -328,11 +383,70 @@
       </div>
     </div>
 
+    <!-- QUICK CONTACT -->
+    <div class="quickContact" id="quickContact">
+      <a href="tel:+19000000" class="quickContact__phone">
+        <i class="fa fa-phone"></i>
+        <p>Hotline</p>
+        <p>1900000</p>
+      </a>
+      <a href="#" class="quickContact__facebook">
+        <i class="fab fa-facebook-f"></i>
+        <p>Facebook</p>
+      </a>
+    </div>
+    <!-- TO TOP -->
+    <div class="toTopBtn" id="toTopBtn">
+      <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- MODAL OF QUICK VIEW PRODUCT -->
+
+    <div class="modal">
+      <div class="modal__content">
+        <!-- HEADER -->
+        <div class="modal__content__header">
+          <h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+            omnis!
+          </h1>
+        </div>
+        <div class="modal__content__main">
+          <!-- LEFT -->
+          <div class="modal__content__left">
+            <div class="view">
+              <img src="" alt="product image" class="modal__content__img" />
+            </div>
+            <div class="view__controller"></div>
+          </div>
+          <!-- RIGHT -->
+          <div class="modal__content__right">
+            <div class="modal__content__right__prices"></div>
+            <div class="modal__content__right__interact">
+              <div class="changeQuantity">
+                <div>
+                  <span class="minus">-</span>
+                  <span class="value">1</span>
+                  <span class="plus">+</span>
+                </div>
+                <button class="changeQuantity__addToCart">thêm vào giỏ</button>
+              </div>
+              <button class="changeQuantity__buyNow">mua ngay</button>
+            </div>
+            <p class="modal__content__right__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Doloribus, obcaecati vero? In tempora doloribus magnam ipsum
+              cumque ipsa debitis commodi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- SCRIPT -->
 
     <!-- MY SCRIPT -->
     <script src="/script/index.js"></script>
-    <script src="/script/quickView.js"></script>
     <script src="/script/products.js"></script>
+    <script src="/script/quickView.js"></script>
   </body>
 </html>

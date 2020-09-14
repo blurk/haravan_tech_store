@@ -208,6 +208,73 @@ html {
   }
 }
 
+.border-0 {
+  border: none !important;
+}
+
+.quickContact {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transition: $base-transition;
+  width: 0;
+  a {
+    display: block;
+    color: #fff;
+    width: 65px;
+    text-align: center;
+    @include font-size(14px);
+    padding: 10px 5px;
+  }
+  &__phone {
+    background-color: #209e00;
+  }
+  &__facebook {
+    background-color: #3b5998;
+  }
+  &-unactive {
+    width: 0;
+  }
+  &-active {
+    width: 65px;
+  }
+}
+
+.toTopBtn {
+  width: 40px;
+  height: 40px;
+  background-color: $primary;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  border-radius: 5px;
+  transition: $base-transition;
+  opacity: 0;
+
+  &:hover {
+    background-color: $dark;
+    i {
+      animation: shake 0.3s infinite;
+    }
+  }
+
+  &-active {
+    opacity: 1;
+  }
+
+  &-unactive {
+    opacity: 0;
+  }
+
+  i {
+    color: #fff;
+    @include font-size(20px);
+  }
+}
+
 /*Other pages*/
 @import 'blog';
 @import 'about';

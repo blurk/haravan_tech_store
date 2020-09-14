@@ -173,11 +173,6 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   );
 
-  /*
-      Function for adding animate css class
-      
-    */
-
   /*Show seacrh bar when Toggle is clicked*/
   $('.header__mid__toggle__search').addEventListener('click', function () {
     $$('.header__mid > *').forEach((child) => {
@@ -226,5 +221,26 @@ window.addEventListener('DOMContentLoaded', () => {
       $('.header__top').classList.remove('d-none');
       $('.header').classList.remove('fixedHeader');
     }
+  });
+
+  /*To Top button*/
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 110) {
+      $('#quickContact').classList.remove('quickContact-unactive');
+      $('#quickContact').classList.add('quickContact-active');
+
+      $('#toTopBtn').classList.remove('toTopBtn-unactive');
+      $('#toTopBtn').classList.add('toTopBtn-active');
+    } else {
+      $('#quickContact').classList.remove('quickContact-active');
+      $('#quickContact').classList.add('quickContact-unactive');
+
+      $('#toTopBtn').classList.remove('toTopBtn-active');
+      $('#toTopBtn').classList.add('toTopBtn-unactive');
+    }
+  });
+
+  $('#toTopBtn').addEventListener('click', () => {
+    window.scrollTo(0, 0);
   });
 });

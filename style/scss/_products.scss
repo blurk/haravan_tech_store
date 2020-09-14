@@ -1,0 +1,168 @@
+/*=================================BANNER SECTION=================================*/
+.banner {
+  margin: 10px 0;
+  padding: 0 35px;
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+/*===============================PRODUCT SECTION==================================*/
+.products {
+  padding: 0 35px;
+  display: grid;
+  grid-template-columns: calc(100% * 9 / 12) calc(100% * 3 / 12);
+  &__main {
+    //*MAIN
+    @include flexBox(column, center, center);
+    padding: 0;
+    align-self: start;
+    //*MAIN HEADER
+    &__header {
+      display: block;
+      width: 100%;
+      padding: 0 55px 10px 35px;
+      .products {
+        &__count {
+          float: left;
+          span {
+            color: $secondary;
+            font-weight: bold;
+          }
+        }
+        &__sort {
+          float: right;
+          form {
+            select {
+              padding: 5px;
+            }
+          }
+        }
+      }
+    }
+    //*MAIN BODY
+    &__body {
+      @include flexBox(row, center, center);
+      flex-wrap: wrap;
+    }
+  }
+  //*ASIDE
+  &__aside {
+    padding-left: 10px;
+    //*ASIDE HEADER
+    &__items {
+      border: 1px solid #ccc;
+    }
+    &__header {
+      color: rgba($primary, 0.8);
+      &:hover {
+        color: rgba($primary, 1);
+      }
+      padding: 5px 10px;
+    }
+    &__body {
+      background-color: $secondary;
+      max-height: 0;
+      overflow: hidden;
+      transition: $base-transition;
+      ul {
+        li {
+          padding: 10px 15px;
+          @include font-size(14px);
+          background-color: #fff;
+          color: $dark;
+          border-bottom: 1px solid $light;
+
+          & + .checkbox__container {
+            @include font-size(14px);
+            background-color: #fff;
+            @include flexBox(row, space-between, center);
+            flex-wrap: wrap;
+            padding: 5px;
+            max-height: 0;
+            overflow: hidden;
+            .check {
+              flex-basis: 50%;
+              @include flexBox(row, start, center);
+              display: inline-flex;
+              padding: 5px;
+              input {
+                margin-right: 5px;
+              }
+              label {
+                white-space: nowrap;
+              }
+            }
+            &-prices {
+              padding-bottom: 5px;
+            }
+            &-colors {
+              flex-basis: 25%;
+              padding: 0;
+              input {
+                visibility: hidden;
+              }
+              input:checked + label {
+                border: 2px solid $secondary;
+              }
+              label {
+                display: block;
+                width: 50px;
+                height: 25px;
+              }
+              .check {
+                flex-basis: 25%;
+                padding: 5px 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*================================ACCORDION CLASS=================================*/
+
+.accordion {
+  cursor: pointer;
+  transition: $base-transition;
+  background-color: $light;
+  text-transform: uppercase;
+  i {
+    float: right;
+    margin-right: 5px;
+    padding: 5px;
+    transition: $base-transition;
+  }
+  &:hover {
+    color: #000;
+  }
+}
+
+/*===========================RESPONSIVE===========================*/
+
+@include respond-below(md) {
+  .products {
+    grid-template-columns: calc(100% * 8 / 12) calc(100% * 4 / 12);
+  }
+}
+
+@include respond-below(sm) {
+  .products {
+    @include flexBox(column, space-between, center);
+    &__main {
+      &__header {
+        display: grid;
+        place-items: center;
+      }
+      .products__sort {
+        text-align: center;
+      }
+    }
+    &__aside {
+      order: -1;
+      margin-bottom: 30px;
+    }
+  }
+}

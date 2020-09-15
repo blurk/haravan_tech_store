@@ -5,30 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = $('.products__pagination__prev');
   const nextBtn = $('.products__pagination__next');
   let products = [];
-  const link = `https://picsum.photos/v2/list?page=${page}}&limit=${limit}`;
   /*Call API*/
 
-  function fetchData(link = '') {
-    if (!link) {
-      console.warn('Must have link as param');
-    } else {
-      fetch(link)
-        .then((response) => response.json())
-        .then((data) =>
-          data.map((item) => ({
-            name: item.author,
-            img: item.download_url,
-          }))
-        )
-        .then((data) => {
-          products = data;
-          console.log(products);
-        });
-    }
+  async function fetchData(page, limit) {
+    let link = `https://picsum.photos/v2/list?page=${page}&limit=${limit}`;
+    const response = await fetch(link);
+    const data = await response.json();
+    console.log('✔');
+    return data.map((item) => ({
+      name: item.author,
+      img: item.download_url,
+    }));
   }
 
-  /*Call API*/
-  fetchData(link);
+  /**
+   * Function for fetching data when paginate
+   * * loadData
+   * @param  {number | string} curPage - current active page
+   */
+  async function loadData(curPage = 1) {
+    page = curPage;
+    products = await fetchData(page, limit);
+    quickRenderProducts(20, true, products);
+  }
 
   /*Add active class after user click*/
   const paginateButtons = $$('.paginate__button');
@@ -37,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', function () {
       //Assign current index to global index
       index = this.innerText;
-      console.log(index);
       toggleActive(index);
       toggleDisabled(index);
+      loadData(index);
     });
   });
 

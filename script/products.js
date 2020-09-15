@@ -1,3 +1,5 @@
+//Pre define so other files can use it
+let quickRenderProducts;
 document.addEventListener('DOMContentLoaded', () => {
   /**
    * quickRenderProducts
@@ -5,8 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {number} n - number of products to render
    */
 
-  function quickRenderProducts(n = 0, paginate = false) {
+  quickRenderProducts = function quickRenderProducts(
+    n = 0,
+    paginate = false,
+    data = []
+  ) {
     const container = $('.products__main__body');
+    const fragment = document.createDocumentFragment();
     for (let i = 0; i < n; i++) {
       const cloneNode = container.firstElementChild.cloneNode(true);
       if (i % 2 !== 0) {
@@ -14,12 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
           '<del class="price-before">15,000,000₫</del>';
         cloneNode.classList.add('sale');
       }
-      if (paginate) {
-        console.log('Paginate');
+      if (i > 3) {
+        cloneNode.querySelector('img').setAttribute('loading', 'lazy');
       }
-      container.appendChild(cloneNode);
+      fragment.appendChild(cloneNode);
     }
-  }
+    if (paginate) {
+      console.log('Paginate');
+      container.innerHTML = null;
+      [...fragment.children].forEach((child, index) => {
+        console.log(data[index]);
+        child.querySelector('img').src = data[index].img;
+        child.querySelector('.gallery__item__title').innerHTML =
+          data[index].name;
+      });
+    }
+    container.appendChild(fragment);
+  };
 
   quickRenderProducts(19);
 

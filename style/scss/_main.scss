@@ -77,7 +77,12 @@ main {
       box-shadow: 1px 1px 6px rgba(#000, 0.2);
     }
     &__img {
+      text-align: center;
       width: 100%;
+      img {
+        max-width: 150px;
+        max-height: 110px;
+      }
     }
     &__content {
       flex: 1;

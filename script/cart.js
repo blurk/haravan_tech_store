@@ -1,4 +1,3 @@
-let x;
 /**
  * Class cart item
  */
@@ -29,8 +28,8 @@ function Cart() {
 }
 
 Cart.prototype.updateView = function () {
-	$('#cartTotal').innerHTML = formatCurrency(this._totalPrice);
 	$('#cartCount').innerHTML = this._quantity;
+	$('#cartTotal').innerHTML = formatCurrency(this._totalPrice);
 };
 
 Cart.prototype.update = function () {
@@ -73,6 +72,12 @@ Cart.prototype.checkStore = function () {
 Cart.prototype.getItems = function () {
 	const cart = this._cart;
 	return [...cart.values()];
+};
+
+Cart.prototype.removeItem = function (key) {
+	this._cart.delete(key);
+	this.update();
+	this.store();
 };
 
 /*FORMAT CURRENCY*/
@@ -118,9 +123,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	 * Render preview container
 	 */
 
-	function renderPreview() {
+	function renderPreview(items = []) {
 		const div = document.createElement('div');
 		div.classList.add('preview');
+
+		if (items.length > 0) {
+			items.forEach(({ _name, _price, _quantity, _img }) => {
+				const product = renderProductPreview(_name, _price, _quantity, _img);
+				div.appendChild(product);
+			});
+		} else {
+			div.appendChild(renderEmty());
+		}
 		return div;
 	}
 
@@ -128,46 +142,69 @@ document.addEventListener('DOMContentLoaded', () => {
 	 * Render products inside preview container
 	 */
 
-	function renderProductPreview(name = '', price = 0, quantity = 0) {
+	function renderProductPreview(
+		name = '',
+		price = 0,
+		quantity = 0,
+		image = ''
+	) {
 		const div_name = document.createElement('div');
 		const div_price = document.createElement('div');
 		const div_quantity = document.createElement('div');
+		const div_image = document.createElement('img');
 		const container = document.createElement('div');
+		const div = document.createElement('div');
+		const btnDelete = document.createElement('button');
 
-		container.classList.add('product__preview');
+		container.classList.add('preview__product');
 		div_name.classList.add('preview__product__name');
 		div_price.classList.add('preview__product__price');
 		div_quantity.classList.add('preview__product__quantity');
+		div_image.classList.add('preview__product__image');
+		btnDelete.classList.add('preview__product__btnDelete');
 
 		div_name.innerHTML = name;
 		div_price.innerHTML = price;
 		div_quantity.innerHTML = quantity;
+		div_image.src = image;
+		div_image.alt = name + '';
+		btnDelete.innerHTML = '<i class="fa fa-times"></i>';
 
-		container.appendChild(div_price);
-		container.appendChild(div_name);
+		/*Add delete action when btnDelete is clicked*/
+		btnDelete.addEventListener('click', function () {
+			console.info('Deleted');
+
+			const name = this.closest('div').querySelector('.preview__product__name')
+				.innerText;
+			cart.removeItem(name);
+			$('.preview').innerHTML = renderEmty();
+		});
+
+		div.appendChild(div_name);
+		div.appendChild(div_price);
+
+		container.appendChild(div_image);
+		container.appendChild(div);
 		container.appendChild(div_quantity);
+		container.appendChild(btnDelete);
 
 		return container;
 	}
 
+	function renderEmty() {
+		const div = document.createElement('div');
+		div.classList.add('preview-empty');
+		div.innerText = `Giỏ hàng hiện đang trống`;
+		return div;
+	}
+
 	$('.header__mid__cart ').addEventListener('mouseenter', function () {
-		console.log('Hello');
 		const fragment = document.createDocumentFragment();
-		const container = renderPreview();
-
-		x = cart.getItems();
-
-		x.forEach(({ _name, _price, _quantity }) => {
-			const product = renderProductPreview(_name, _price, _quantity);
-			console.log({ _name, _price, _quantity });
-			container.appendChild(product);
-		});
-
+		const container = renderPreview(cart.getItems());
 		fragment.appendChild(container);
 		this.appendChild(fragment);
 	});
 	$('.header__mid__cart').addEventListener('mouseleave', function () {
-		console.log('Bye');
 		const prev = this.querySelector('.preview');
 		this.removeChild(prev);
 	});

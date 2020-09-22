@@ -1,0 +1,119 @@
+.cartTable-container {
+	table {
+		width: 100%;
+		margin: 20px auto;
+		padding: 20px 40px;
+		border-collapse: separate;
+		border-spacing: 0 1em;
+		overflow-x: scroll;
+		min-width: 500px;
+		table-layout: auto;
+
+		.trContent {
+			border: 0px solid;
+			box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+			td {
+				padding: 10px 20px;
+				text-align: center;
+				width: 20ch;
+				span {
+					padding: 10px;
+					display: inline-block;
+					text-align: center;
+					transition: $base-transition;
+					&.changeQuantity {
+						&__plus,
+						&__minus {
+							cursor: pointer;
+							color: $dark;
+							&:hover {
+								filter: brightness(1.4);
+								transform: scale(1.01);
+							}
+						}
+						&__qty {
+							width: 5ch;
+						}
+					}
+				}
+			}
+
+			.btnRemove {
+				text-align: left;
+				color: rgba(#f00, 0.5);
+				cursor: pointer;
+				transition: $base-transition;
+				@include font-size(20px);
+				&:hover {
+					color: rgba(#f00, 0.8);
+				}
+			}
+		}
+
+		.trTitle {
+			background-color: $primary;
+			color: $light;
+			box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+			th {
+				padding: 10px;
+				text-align: center;
+			}
+		}
+
+		td {
+			img {
+				width: 80px;
+			}
+		}
+	}
+	.table-empty {
+		width: 100%;
+		padding: 20px 40px;
+		@include font-size(25px);
+		text-align: center;
+		a {
+			transition: $base-transition;
+			color: $primary;
+			&:hover {
+				color: $secondary;
+			}
+		}
+	}
+}
+
+.total-container {
+	padding: 10px 40px;
+	@include flexBox(row, center, center);
+	& > * {
+		margin: 0 40px;
+	}
+	.total {
+		@include flexBox(row, start, center);
+		@include font-size(28px);
+		font-weight: bold;
+		div {
+			margin: 0 10px;
+		}
+		&__title {
+			color: $dark;
+		}
+		&__show {
+			color: $primary;
+		}
+	}
+	.btnPurchase {
+		display: block;
+		border-radius: 2px;
+		padding: 8px 20px;
+		@include font-size(18px);
+		color: $light;
+		cursor: pointer;
+		transition: $base-transition;
+		background-image: linear-gradient(to right, $primary 50%, $secondary 50%);
+		background-size: 200% 100%;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		&:hover {
+			background-position: -100% 0;
+		}
+	}
+}

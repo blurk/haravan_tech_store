@@ -131,6 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			items.forEach(({ _name, _price, _quantity, _img }) => {
 				const product = renderProductPreview(_name, _price, _quantity, _img);
 				div.appendChild(product);
+
+				const btnToCart = document.createElement('a');
+				btnToCart.classList.add('preview__btnToCart');
+				btnToCart.innerHTML = 'Đi tới giỏ hàng';
+				btnToCart.href = '/cart.html';
+				div.appendChild(btnToCart);
 			});
 		} else {
 			div.appendChild(renderEmty());

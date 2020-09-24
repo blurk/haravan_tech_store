@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tech Store</title>
+		<!-- FONTAWESOME -->
+		<link
+			rel="stylesheet"
+			href="/assets/fonts/fontawesome-free-5.14.0-web/css/all.min.css"
+		/>
+		<!-- ANIMATE CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+		/>
+		<!-- CUSTOM CSS -->
+		<link rel="stylesheet" href="/style/css/index.min.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<!-- MAIN -->
+			<main class="checkout">
+				<!-- BREADCRUMBS -->
+				<h1>Tech Store</h1>
+				<section class="breadcrumbs" id="breadcrumbs">
+					<ul>
+						<li><a href="./index.html">Trang chủ</a></li>
+						<li class="breadcrumbs__active">
+							<a href=".">Giới thiệu</a>
+						</li>
+					</ul>
+				</section>
+
+				<form action="">
+					<section class="checkout__info">
+						<h2>Thông tin giao hàng</h2>
+						<p>Bạn đã có tài khoản? <a href="./sign.html">Đăng nhập</a></p>
+						<input
+							class="form__input"
+							type="text"
+							name="fullname"
+							id="fullname"
+							placeholder="Họ và tên"
+						/>
+						<input
+							class="form__input"
+							type="email"
+							name="email"
+							id="email"
+							placeholder="Email"
+						/>
+						<input
+							class="form__input"
+							type="text"
+							name="phone"
+							id="phone"
+							placeholder="Số điện thoại"
+						/>
+						<input
+							class="form__input"
+							type="text"
+							name="address"
+							id="address"
+							placeholder="Địa chỉ"
+						/>
+
+						<select class="form__input" name="provinces" id="provinces">
+							<option value="">Tỉnh thành</option>
+							<option value="hn">Hà Nội</option>
+							<option value="hcm">Hồ Chí Minh</option>
+							<option value="dn">Đà Nẵng</option>
+						</select>
+
+						<select
+							class="form__input"
+							name="district"
+							id="district"
+							placeholder="Quận/huyện"
+						>
+							<option value="">Quận/huyện</option>
+						</select>
+					</section>
+					<section class="checkout__transfer-method">
+						<h2>Phương thức vận chuyển</h2>
+						<input
+							type="radio"
+							name="transferMethod"
+							value="ghtn"
+							id="transferMethod"
+						/>
+						<label for="transferMethod">Giao hàng tận nơi</label>
+						<span id="transferFee"></span>
+					</section>
+					<section class="checkout__payment-method">
+						<h2>Phương thức thanh toán</h2>
+
+						<div class="checkout__payment-method-1">
+							<input
+								type="radio"
+								name="paymentMethod"
+								value="cod"
+								id="paymentMethod1"
+							/>
+							<label for="paymentMethod1">Thanh toán khi giao hàng(COD)</label>
+						</div>
+						<div class="checkout__payment-method-2">
+							<input
+								type="radio"
+								name="paymentMethod"
+								value="ck"
+								id="paymentMethod2"
+							/>
+							<label for="paymentMethod2">Chuyển khoản qua ngân hàng</label>
+						</div>
+					</section>
+					<footer>
+						<a href="./cart.html"> <i class="fa fa-angle-left"></i> Giỏ hàng</a>
+						<button class="btnComplete" id="btnComplete">
+							Hoàn tất đơn hàng
+						</button>
+					</footer>
+				</form>
+			</main>
+		</div>
+		<!-- SCRIPT -->
+		<script src="/script/checkout.js"></script>
+	</body>
+</html>

@@ -17,22 +17,28 @@
 				text-align: center;
 				width: 20ch;
 				span {
-					padding: 10px;
+					padding: 10px 15px;
 					display: inline-block;
 					text-align: center;
 					transition: $base-transition;
+					border-radius: 50%;
 					&.changeQuantity {
 						&__plus,
 						&__minus {
 							cursor: pointer;
-							color: $dark;
 							&:hover {
-								filter: brightness(1.4);
 								transform: scale(1.01);
+								filter: invert(1);
 							}
 						}
 						&__qty {
 							width: 5ch;
+						}
+						&__plus {
+							color: rgba(green, 0.7);
+						}
+						&__minus {
+							color: rgba(red, 0.7);
 						}
 					}
 				}
@@ -69,7 +75,7 @@
 	.table-empty {
 		width: 100%;
 		padding: 20px 40px;
-		@include font-size(25px);
+		font-size: clamp(0.8rem, 4vw, 1.6rem);
 		text-align: center;
 		a {
 			transition: $base-transition;
@@ -115,5 +121,12 @@
 		&:hover {
 			background-position: -100% 0;
 		}
+	}
+}
+
+@include respond-below(md) {
+	.table-empty,
+	.total-container {
+		@include flexBox(column, center, center);
 	}
 }

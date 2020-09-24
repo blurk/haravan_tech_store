@@ -1,463 +1,481 @@
 main {
-  padding: 50px 0;
+	padding: 50px 0;
 }
 
 .carousel {
-  width: 100%;
-  height: 500px;
-  position: relative;
-  @include background('../../assets/images/slideshow_1.jpg');
-  a {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .dots {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-    text-align: center;
-  }
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 5px;
-    background-color: rgba($light, 0.6);
-    border-radius: 50%;
-    display: inline-block;
-    transition: $base-transition;
-    &:hover {
-      background-color: $primary;
-    }
-    &-active {
-      background-color: $primary;
-    }
-  }
+	width: 100%;
+	height: 500px;
+	position: relative;
+	@include background('../../assets/images/slideshow_1.jpg');
+	a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	.dots {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 30px;
+		text-align: center;
+	}
+	.dot {
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+		margin: 0 5px;
+		background-color: rgba($light, 0.6);
+		border-radius: 50%;
+		display: inline-block;
+		transition: $base-transition;
+		&:hover {
+			background-color: $primary;
+		}
+		&-active {
+			background-color: $primary;
+		}
+	}
 }
 
 .gallery {
-  width: 80%;
-  padding: 0 8px;
-  margin: 50px auto;
-  &__header {
-    border-bottom: 2px solid $primary;
-    margin-bottom: 20px;
-    ul {
-      @include flexBox(row, start, center);
-      li {
-        padding: 6px 12px;
-        a {
-          text-transform: uppercase;
-          color: $primary;
-          font-weight: bold;
-          @include font-size(18px);
-        }
-      }
-      .tab-active {
-        background-color: $primary;
-        a {
-          color: #fff;
-        }
-      }
-    }
-  }
-  &__body {
-    flex-wrap: wrap;
-    @include flexBox(row, center, center);
-  }
-  &__item {
-    flex-basis: 25%;
-    height: 350px;
-    padding: 16px 32px;
-    transition: $base-transition;
-    &:hover {
-      transform: translateY(-1%);
-      box-shadow: 1px 1px 6px rgba(#000, 0.2);
-    }
-    &__img {
-      text-align: center;
-      width: 100%;
-      img {
-        max-width: 150px;
-        max-height: 110px;
-      }
-    }
-    &__content {
-      flex: 1;
-    }
-    &__prices {
-      .price {
-        &-current {
-          font-weight: bold;
-          color: $primary;
-        }
-        &-before {
-          color: $dark;
-        }
-      }
-    }
-    &__buttons {
-      width: 100%;
-      padding: 0;
-      @include flexBox(column, center, center);
-      button {
-        width: 100%;
-        padding: 8px 24px;
-        margin: 5px 0;
-        background: $primary;
-        color: #fff;
-        border: 0;
-        cursor: pointer;
-        transition: $base-transition;
-        @include font-size(16px);
-        &:hover {
-          filter: brightness(1.2);
-        }
-      }
-    }
-  }
-  .sale {
-    position: relative;
-    &::before {
-      content: '-15%';
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      background-color: $secondary;
-      color: #fff;
-      text-align: center;
-      width: 50px;
-      height: 25px;
-      border-radius: 2px;
-    }
-  }
+	width: 80%;
+	padding: 0 8px;
+	margin: 50px auto;
+	&__header {
+		border-bottom: 2px solid $primary;
+		margin-bottom: 20px;
+		ul {
+			@include flexBox(row, start, center);
+			li {
+				padding: 6px 12px;
+				a {
+					text-transform: uppercase;
+					color: $primary;
+					font-weight: bold;
+					@include font-size(18px);
+				}
+			}
+			.tab-active {
+				background-color: $primary;
+				a {
+					color: #fff;
+				}
+			}
+		}
+	}
+	&__body {
+		flex-wrap: wrap;
+		@include flexBox(row, center, center);
+	}
+	&__item {
+		flex-basis: 25%;
+		height: 350px;
+		padding: 16px 32px;
+		transition: $base-transition;
+		&:hover {
+			transform: translateY(-1%);
+			box-shadow: 1px 1px 6px rgba(#000, 0.2);
+		}
+		&__img {
+			text-align: center;
+			width: 100%;
+			img {
+				max-width: 150px;
+				max-height: 110px;
+			}
+		}
+		&__content {
+			flex: 1;
+		}
+		&__prices {
+			.price {
+				&-current {
+					font-weight: bold;
+					color: $primary;
+				}
+				&-before {
+					color: $dark;
+				}
+			}
+		}
+		&__buttons {
+			width: 100%;
+			padding: 0;
+			@include flexBox(column, center, center);
+			button {
+				width: 100%;
+				padding: 8px 24px;
+				margin: 5px 0;
+				background: $primary;
+				color: #fff;
+				border: 0;
+				cursor: pointer;
+				transition: $base-transition;
+				@include font-size(16px);
+				&:hover {
+					filter: brightness(1.2);
+				}
+			}
+		}
+	}
+	.sale {
+		position: relative;
+		&::before {
+			content: '-15%';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			background-color: $secondary;
+			color: #fff;
+			text-align: center;
+			width: 50px;
+			height: 25px;
+			border-radius: 2px;
+		}
+	}
 }
 
 .brands {
-  position: relative;
-  padding: 0;
-  height: 50px;
-  text-align: center;
-  &__container {
-    @include flexBox(row, space-around, center);
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    .brand__img {
-      transition: $base-transition;
-      margin: 0 25px;
-      flex-basis: 80px;
-    }
-  }
-  .controller {
-    position: absolute;
-    top: 50%;
-    @include font-size(30px);
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    color: $dark;
-    transition: $base-transition;
-    &:hover {
-      filter: brightness(1.5);
-      filter: drop-shadow(0 0 1rem #000);
-    }
-  }
-  .left {
-    left: 5%;
-  }
-  .right {
-    right: 5%;
-  }
+	position: relative;
+	padding: 0;
+	height: 50px;
+	text-align: center;
+	&__container {
+		@include flexBox(row, space-around, center);
+		width: 80%;
+		height: 100%;
+		margin: 0 auto;
+		overflow: hidden;
+		.brand__img {
+			transition: $base-transition;
+			margin: 0 25px;
+			flex-basis: 80px;
+		}
+	}
+	.controller {
+		position: absolute;
+		top: 50%;
+		@include font-size(30px);
+		cursor: pointer;
+		display: grid;
+		place-items: center;
+		border-radius: 50%;
+		color: $dark;
+		transition: $base-transition;
+		&:hover {
+			filter: brightness(1.5);
+			filter: drop-shadow(0 0 1rem #000);
+		}
+	}
+	.left {
+		left: 5%;
+	}
+	.right {
+		right: 5%;
+	}
 }
 
 /*Contact section*/
 
 $icons: (
-  'facebook': #3b5998,
-  'twitter': #00acee,
-  'pinterest': #c8232c,
-  'rss': #ee802f,
+	'facebook': #3b5998,
+	'twitter': #00acee,
+	'pinterest': #c8232c,
+	'rss': #ee802f,
 );
 
 .contact {
-  @include flexBox(row, space-around, center);
-  margin-top: 50px;
-  background-color: $dark;
-  padding: 10px 0;
-  .title {
-    color: #fff;
-    font-weight: bold;
-    i {
-      @include font-size(25px);
-      margin-right: 10px;
-    }
-  }
-  .contact-form {
-    @extend .header__mid__search;
-    form {
-      border: none;
-    }
-    button {
-      color: $secondary;
-      font-weight: bold;
-      width: calc(30% - 10px);
-      white-space: nowrap;
-      &:hover {
-        color: $dark;
-      }
-    }
-  }
-  .share {
-    @include flexBox(row, center, center);
-    .icon {
-      margin-right: 5px;
-      display: inline-block;
-      padding: 5px;
-      border-radius: 5px;
-      @include font-size(20px);
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      i {
-        display: block;
-      }
-      &:hover {
-        i {
-          animation: shake 0.3s infinite;
-        }
-      }
-    }
+	@include flexBox(row, space-around, center);
+	margin-top: 50px;
+	background-color: $dark;
+	padding: 10px 0;
+	.title {
+		color: #fff;
+		font-weight: bold;
+		i {
+			@include font-size(25px);
+			margin-right: 10px;
+		}
+	}
+	.contact-form {
+		@extend .header__mid__search;
+		form {
+			border: none;
+		}
+		button {
+			color: $secondary;
+			font-weight: bold;
+			width: calc(30% - 10px);
+			white-space: nowrap;
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+	.share {
+		@include flexBox(row, center, center);
+		.icon {
+			margin-right: 5px;
+			display: inline-block;
+			padding: 5px;
+			border-radius: 5px;
+			@include font-size(20px);
+			width: 40px;
+			height: 40px;
+			display: grid;
+			place-items: center;
+			color: #fff;
+			i {
+				display: block;
+			}
+			&:hover {
+				i {
+					animation: shake 0.3s infinite;
+				}
+			}
+		}
 
-    @each $name, $color in $icons {
-      .#{$name} {
-        background-color: $color;
-      }
-    }
-  }
+		@each $name, $color in $icons {
+			.#{$name} {
+				background-color: $color;
+			}
+		}
+	}
 }
 
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 5;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+	display: none;
+	position: fixed;
+	z-index: 5;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
 
-  &__content {
-    background-color: $light;
-    margin: 5% auto;
-    width: 60%;
-    border: 0 solid;
-    border-radius: 5px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 6, 0.05);
-    &__header {
-      padding: 20px 10px 5px;
-    }
-    &__main {
-      background-color: #fff;
-      @include flexBox(row, center, center);
-      padding: 10px 20px;
-      margin: 10px 10px;
-    }
-    &__left,
-    &__right {
-      flex-basis: 50%;
-      @include flexBox(column, center, start);
-    }
-    &__right {
-      * {
-        flex-basis: 30%;
-      }
-      &__interact {
-        width: 100%;
-        .changeQuantity {
-          @include flexBox(row, space-between, center);
-          & > div {
-            margin: -12px 0;
-            height: 100%;
-            flex-basis: 50%;
-            span {
-              padding: 6px 0;
-              transition: $base-transition;
-              display: inline-block;
-              width: 50px;
-              height: 50px;
-              height: 100%;
-              text-align: center;
-              &.value {
-                border-top: 1px solid #eee;
-                border-bottom: 1px solid #eee;
-                width: 40%;
-                margin: 0 -5px;
-              }
-              &.minus,
-              &.plus {
-                border: 1px solid #eee;
-                cursor: pointer;
-                color: $dark;
-                &:hover {
-                  color: $light;
-                  background-color: $dark;
-                }
-              }
-            }
-          }
-        }
-        button {
-          text-transform: uppercase;
-          color: #fff;
-          border: none;
-          padding: 12px 24px;
-          cursor: pointer;
-          transition: $base-transition;
-          font-weight: bold;
-          @include font-size(18px);
-          &:hover {
-            filter: brightness(1.1);
-          }
-          &.changeQuantity__addToCart {
-            background-color: #209e00;
-            flex-basis: 50%;
-          }
-          &.changeQuantity__buyNow {
-            background-color: #f8232c;
-            width: 100%;
-            margin: 10px 0;
-          }
-        }
-      }
-      &__prices {
-        font-size: 28px;
-        width: 100%;
-        padding: 10px 0;
-        border-bottom: 1px solid $light;
-        margin-bottom: 10px;
-        .price {
-          &-current {
-            font-weight: bold;
-          }
-          &-before {
-            color: $dark;
-          }
-        }
-      }
-      &__description {
-        margin-top: 10px;
-        border-top: 1px solid $light;
-        padding: 10px 0;
-      }
-    }
-    &__left {
-      .view {
-        width: 300px;
-        height: 200px;
-        margin: 0 auto 10px;
-        img {
-          display: block;
-          width: 100%;
-        }
-        &__controller {
-          @include flexBox(row, start, center);
-          img {
-            transition: $base-transition;
-            flex-basis: 20%;
-            max-width: 18%;
-            margin: 0 1px;
-            border: 3px solid $light;
-            border-radius: 2px;
-            cursor: pointer;
-            &:hover {
-              transform: scale(1.01);
-            }
-          }
-        }
-      }
-    }
-  }
+	&__content {
+		background-color: $light;
+		margin: 5% auto;
+		width: 60%;
+		border: 0 solid;
+		border-radius: 5px;
+		box-shadow: 0 0 20px 0 rgba(0, 0, 6, 0.05);
+		&__header {
+			padding: 20px 10px 5px;
+		}
+		&__main {
+			background-color: #fff;
+			@include flexBox(row, center, center);
+			padding: 10px 20px;
+			margin: 10px 10px;
+		}
+		&__left,
+		&__right {
+			flex-basis: 50%;
+			@include flexBox(column, center, start);
+		}
+		&__right {
+			* {
+				flex-basis: 30%;
+			}
+			&__interact {
+				width: 100%;
+				.changeQuantity {
+					@include flexBox(row, space-between, center);
+					& > div {
+						margin: -12px 0;
+						height: 100%;
+						flex-basis: 50%;
+						span {
+							padding: 6px 0;
+							transition: $base-transition;
+							display: inline-block;
+							width: 50px;
+							height: 50px;
+							height: 100%;
+							text-align: center;
+							&.value {
+								border-top: 1px solid #eee;
+								border-bottom: 1px solid #eee;
+								width: 40%;
+								margin: 0 -5px;
+							}
+							&.minus,
+							&.plus {
+								border: 1px solid #eee;
+								cursor: pointer;
+								color: $dark;
+								&:hover {
+									color: $light;
+									background-color: $dark;
+								}
+							}
+						}
+					}
+				}
+				button {
+					text-transform: uppercase;
+					color: #fff;
+					border: none;
+					padding: 12px 24px;
+					cursor: pointer;
+					transition: $base-transition;
+					font-weight: bold;
+					@include font-size(18px);
+					&:hover {
+						filter: brightness(1.1);
+					}
+					&.changeQuantity__addToCart {
+						background-color: #209e00;
+						flex-basis: 50%;
+					}
+					&.changeQuantity__buyNow {
+						background-color: #f8232c;
+						width: 100%;
+						margin: 10px 0;
+					}
+				}
+				a {
+					display: block;
+					text-align: center;
+					text-transform: uppercase;
+					color: #fff;
+					border: none;
+					padding: 12px 24px;
+					cursor: pointer;
+					transition: $base-transition;
+					font-weight: bold;
+					@include font-size(18px);
+					background-color: #f8232c;
+					width: 100%;
+					margin: 10px 0;
+					&:hover {
+						filter: brightness(1.1);
+					}
+				}
+			}
+			&__prices {
+				font-size: 28px;
+				width: 100%;
+				padding: 10px 0;
+				border-bottom: 1px solid $light;
+				margin-bottom: 10px;
+				.price {
+					&-current {
+						font-weight: bold;
+					}
+					&-before {
+						color: $dark;
+					}
+				}
+			}
+			&__description {
+				margin-top: 10px;
+				border-top: 1px solid $light;
+				padding: 10px 0;
+			}
+		}
+		&__left {
+			.view {
+				width: 300px;
+				height: 200px;
+				margin: 0 auto 10px;
+				img {
+					display: block;
+					width: 100%;
+				}
+				&__controller {
+					@include flexBox(row, start, center);
+					img {
+						transition: $base-transition;
+						flex-basis: 20%;
+						max-width: 18%;
+						margin: 0 1px;
+						border: 3px solid $light;
+						border-radius: 2px;
+						cursor: pointer;
+						&:hover {
+							transform: scale(1.01);
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @include respond-below(lg) {
-  .contact {
-    flex-direction: column;
-    & > * {
-      margin-top: 10px;
-    }
-    .contact-form {
-      display: block;
-    }
-  }
+	.contact {
+		flex-direction: column;
+		& > * {
+			margin-top: 10px;
+		}
+		.contact-form {
+			display: block;
+		}
+	}
 }
 
 @include respond-below(md) {
-  .modal {
-    overflow-y: auto;
+	.modal {
+		overflow-y: auto;
 
-    &__content {
-      &__header h1 {
-        @include font-size(20px);
-      }
-      width: 90%;
-      &__main {
-        flex-direction: column;
-      }
-      &__left {
-        .view {
-          width: 90%;
-          height: auto;
-        }
-      }
-      &__right {
-        &__interact {
-          .changeQuantity {
-            div {
-              width: 100%;
-              text-align: center;
-              margin-bottom: 20px;
-            }
-            flex-direction: column;
-            &__addToCart {
-              width: 100%;
-            }
-          }
-        }
-      }
-    }
-  }
+		&__content {
+			&__header h1 {
+				@include font-size(20px);
+			}
+			width: 90%;
+			&__main {
+				flex-direction: column;
+			}
+			&__left {
+				.view {
+					width: 90%;
+					height: auto;
+				}
+			}
+			&__right {
+				&__interact {
+					.changeQuantity {
+						div {
+							width: 100%;
+							text-align: center;
+							margin-bottom: 20px;
+						}
+						flex-direction: column;
+						&__addToCart {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @include respond-below(xs) {
-  .main {
-    .carousel {
-      height: 200px;
-      background-size: contain;
-      .dots {
-        padding-top: 5px;
-        background-color: rgba($dark, 0.4);
-      }
-    }
-  }
+	.main {
+		.carousel {
+			height: 200px;
+			background-size: contain;
+			.dots {
+				padding-top: 5px;
+				background-color: rgba($dark, 0.4);
+			}
+		}
+	}
 }
 
 @keyframes shake {
-  0%,
-  100% {
-    transform: rotate(0);
-  }
-  50% {
-    transform: rotate(5deg);
-  }
-  100% {
-    transform: rotate(-5deg);
-  }
+	0%,
+	100% {
+		transform: rotate(0);
+	}
+	50% {
+		transform: rotate(5deg);
+	}
+	100% {
+		transform: rotate(-5deg);
+	}
 }

@@ -32,6 +32,10 @@ Cart.prototype.updateView = function () {
 	$('#cartTotal').innerHTML = formatCurrency(this._totalPrice);
 };
 
+Cart.prototype.store = function () {
+	localStorage.cart = JSON.stringify([...this._cart]);
+};
+
 Cart.prototype.update = function () {
 	let total = 0;
 	let quantity = 0;
@@ -54,10 +58,7 @@ Cart.prototype.add = function (newItem) {
 		);
 	}
 	this.update();
-};
-
-Cart.prototype.store = function () {
-	localStorage.cart = JSON.stringify([...this._cart]);
+	this.store();
 };
 
 Cart.prototype.checkStore = function () {
@@ -77,6 +78,7 @@ Cart.prototype.getItems = function () {
 Cart.prototype.removeItem = function (key) {
 	this._cart.delete(key);
 	this.update();
+	this.updateView();
 	this.store();
 };
 
@@ -97,7 +99,6 @@ function calcTotalPrice(item) {
 document.addEventListener('DOMContentLoaded', () => {
 	var cart = new Cart();
 	cart.checkStore();
-
 	/*Handle click event*/
 	const addToCartBtns = $$('.addToCart');
 	[...addToCartBtns].forEach((btn) => {
@@ -117,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		const img = item.querySelector('.gallery__item__img > img').src;
 		return new CartItem(name, description, +price.replace(/,|₫/g, ''), img, 1);
 	}
-	/*For cart view when hover*/
 
 	/**
 	 * Render preview container
@@ -178,12 +178,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		/*Add delete action when btnDelete is clicked*/
 		btnDelete.addEventListener('click', function () {
-			console.info('Deleted');
-
 			const name = this.closest('div').querySelector('.preview__product__name')
 				.innerText;
 			cart.removeItem(name);
-			$('.preview').innerHTML = renderEmty();
+			this.parentElement.parentElement.removeChild(this.parentElement);
+
+			const location = window.location.href.split('/')[3];
+
+			if (location.includes('cart')) {
+				[...$('table > tbody').children].forEach((child) => {
+					if (child.cells[1].innerText === name) {
+						$('table > tbody').removeChild(child);
+					}
+				});
+
+				$('.total__show').innerText = formatCurrency(cart._totalPrice);
+
+				if (cart._quantity === 0) {
+					$('.cartTable-container').innerHTML = null;
+					$('.cartTable-container').appendChild(renderEmptyTable());
+				}
+			}
 		});
 
 		div.appendChild(div_name);
@@ -205,12 +220,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	$('.header__mid__cart ').addEventListener('mouseenter', function () {
+		cart.checkStore();
 		const fragment = document.createDocumentFragment();
 		const container = renderPreview(cart.getItems());
 		fragment.appendChild(container);
 		this.appendChild(fragment);
 	});
 	$('.header__mid__cart').addEventListener('mouseleave', function () {
+		cart.checkStore();
 		const prev = this.querySelector('.preview');
 		this.removeChild(prev);
 	});

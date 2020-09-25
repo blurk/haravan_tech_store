@@ -27,7 +27,7 @@
 					<ul>
 						<li><a href="./index.html">Trang chủ</a></li>
 						<li class="breadcrumbs__active">
-							<a href=".">Giới thiệu</a>
+							<a href=".">Thanh toán</a>
 						</li>
 					</ul>
 				</section>
@@ -83,14 +83,18 @@
 					</section>
 					<section class="checkout__transfer-method">
 						<h2>Phương thức vận chuyển</h2>
-						<input
-							type="radio"
-							name="transferMethod"
-							value="ghtn"
-							id="transferMethod"
-						/>
-						<label for="transferMethod">Giao hàng tận nơi</label>
-						<span id="transferFee"></span>
+						<div>
+							<label for="transferMethod"
+								><input
+									type="radio"
+									name="transferMethod"
+									value="ghtn"
+									id="transferMethod"
+									checked
+								/>Giao hàng tận nơi</label
+							>
+							<span id="transferFee"></span>
+						</div>
 					</section>
 					<section class="checkout__payment-method">
 						<h2>Phương thức thanh toán</h2>
@@ -101,6 +105,7 @@
 								name="paymentMethod"
 								value="cod"
 								id="paymentMethod1"
+								checked
 							/>
 							<label for="paymentMethod1">Thanh toán khi giao hàng(COD)</label>
 						</div>
@@ -121,9 +126,40 @@
 						</button>
 					</footer>
 				</form>
+
+				<!-- BILL INFO START-->
+				<div class="bill-info d-none">
+					<header>
+						<h3>Đặt hàng thành công</h3>
+						<p>Mã đơn hàng <span id="billId"></span></p>
+						<p>Cảm ơn bạn đã mua hàng!</p>
+					</header>
+					<main>
+						<h3>Thông tin đơn hàng</h3>
+						<p>Thông tin giao hàng</p>
+						<p name="bill-phone" class="bill-info__content"></p>
+						<hr />
+						<p id="billProvince" class="bill-info__content"></p>
+						<p class="bill-info__content">Vietnam</p>
+						<p name="bill-phone" class="bill-info__content"></p>
+						<hr />
+						<p>Phương thức thanh toán</p>
+						<p id="billPaymentMethod" class="bill-info__content"></p>
+					</main>
+					<footer>
+						<p>
+							<i class="fa fa-question"></i>Bạn cần hỗ trợ?<a href=""></a>
+								Liên hệ chúng tôi</a
+							>
+						</p>
+						<a href="./products.html" class="btnContinue" id="btnContinue">Tiếp tục mua hàng</a>
+					</footer>
+				</div>
+				<!-- BILL INFO END-->
 			</main>
 		</div>
 		<!-- SCRIPT -->
+		<script src="/script/cart.js"></script>
 		<script src="/script/checkout.js"></script>
 	</body>
 </html>

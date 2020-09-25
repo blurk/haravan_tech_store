@@ -174,3 +174,13 @@ function updateItem(item = null, isPlus = true) {
 
 renderCartTable();
 renderTotalPrice();
+
+document.addEventListener('DOMContentLoaded', () => {
+	$('#btnPurchase').addEventListener('click', (e) => {
+		if (cart._quantity <= 0) {
+			e.preventDefault();
+		} else {
+			window.location = '/checkout.html';
+		}
+	});
+});

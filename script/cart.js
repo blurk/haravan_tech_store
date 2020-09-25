@@ -28,8 +28,10 @@ function Cart() {
 }
 
 Cart.prototype.updateView = function () {
-	$('#cartCount').innerHTML = this._quantity;
-	$('#cartTotal').innerHTML = formatCurrency(this._totalPrice);
+	if (!window.location.href.split('/')[3].includes('checkout')) {
+		$('#cartCount').innerHTML = this._quantity;
+		$('#cartTotal').innerHTML = formatCurrency(this._totalPrice);
+	}
 };
 
 Cart.prototype.store = function () {
@@ -219,14 +221,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		return div;
 	}
 
-	$('.header__mid__cart ').addEventListener('mouseenter', function () {
+	$('.header__mid__cart ')?.addEventListener('mouseenter', function () {
 		cart.checkStore();
 		const fragment = document.createDocumentFragment();
 		const container = renderPreview(cart.getItems());
 		fragment.appendChild(container);
 		this.appendChild(fragment);
 	});
-	$('.header__mid__cart').addEventListener('mouseleave', function () {
+	$('.header__mid__cart')?.addEventListener('mouseleave', function () {
 		cart.checkStore();
 		const prev = this.querySelector('.preview');
 		this.removeChild(prev);

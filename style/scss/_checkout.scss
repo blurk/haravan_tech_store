@@ -5,28 +5,59 @@
 		color: $dark;
 		font-weight: 300;
 	}
+	h2 {
+		font-size: clamp(1.4rem, 3.5vw, 2rem);
+		font-weight: 400;
+	}
 }
 
 .checkout {
 	form > section {
 		box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-		padding: 30px;
+		padding: 20px;
 	}
 	&__info {
 		margin: 10px 0 20px;
+		p {
+			font-size: clamp(0.8rem, 2vw, 1rem);
+			margin: 5px 0;
+			a {
+				font-weight: bold;
+				color: $primary;
+				transition: $base-transition;
+				&:hover {
+					color: $secondary;
+				}
+			}
+		}
 	}
-	&__transfer-method {
-		margin: 20px 0;
-	}
+	&__transfer-method,
 	&__payment-method {
 		margin: 20px 0;
+		input {
+			font-size: clamp(0.2rem, 1vw, 2rem);
+			margin: 15px 0 5px;
+		}
+	}
+
+	&__transfer-method {
+		div {
+			@include flexBox(row, space-between, center);
+			span {
+				color: $primary;
+			}
+			input {
+				margin-right: 5px;
+			}
+		}
 	}
 
 	form {
 		padding: 20px;
 		min-width: 300px;
-		width: 50%;
+		width: 50vw;
 		margin: 0 auto;
+
 		.form {
 			@include flexBox(column, center, center);
 			&__input {
@@ -35,12 +66,21 @@
 				height: 3rem;
 				width: 100%;
 				padding: 5px 10px;
-				@include font-size(16px);
+				@include font-size(15px);
 				margin: 5px 0;
 				transition: $base-transition;
 				color: $dark;
 				&:focus {
 					border-color: $primary;
+				}
+				&-error {
+					&::placeholder {
+						color: rgba(red, 0.8);
+					}
+					border-color: rgba(red, 0.8);
+					&:focus {
+						border-color: rgba(red, 0.8);
+					}
 				}
 			}
 		}
@@ -77,4 +117,75 @@
 			}
 		}
 	}
+
+	.bill-info {
+		@extend form;
+		header {
+			text-align: center;
+			margin-bottom: 10px;
+			#billId {
+				color: #999;
+			}
+		}
+		main {
+			padding: 20px 30px;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			hr {
+				border: 1px solid $light;
+				width: 50%;
+				margin: 10px 0;
+			}
+			.bill-info__content {
+				color: gray;
+				font-weight: 400;
+			}
+		}
+		footer {
+			@include flexBox(row, space-between, center);
+			padding: 20px 0;
+			@include font-size(16px);
+			p {
+				color: $dark;
+				a {
+					transition: $base-transition;
+					color: $primary;
+					&:hover {
+						color: $secondary;
+					}
+				}
+				i {
+					@include font-size(12px);
+					display: inline-block;
+					margin-right: 5px;
+					line-height: 12px;
+					padding: 6px 8px;
+					border-radius: 50%;
+					background-color: $light;
+				}
+			}
+			a.btnContinue {
+				@extend .btnComplete;
+				text-align: center;
+			}
+		}
+	}
+}
+
+@include respond-below(md) {
+	.wrapper {
+		padding: 0 10px;
+	}
+	.checkout {
+		form {
+			footer {
+				flex-direction: column;
+			}
+		}
+	}
+}
+
+.error-box {
+	color: rgba(red, 0.8);
+	padding: 5px;
+	@include font-size(14px);
 }

@@ -113,6 +113,7 @@
 		display: block;
 		border-radius: 2px;
 		padding: 8px 20px;
+		line-height: 35px;
 		@include font-size(18px);
 		color: $light;
 		cursor: pointer;
@@ -120,6 +121,7 @@
 		background-image: linear-gradient(to right, $primary 50%, $secondary 50%);
 		background-size: 200% 100%;
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		text-align: center;
 		&:hover {
 			background-position: -100% 0;
 		}

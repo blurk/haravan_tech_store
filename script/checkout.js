@@ -37,12 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		const data = Object.fromEntries(form.entries());
 
 		if (!data.phone) {
+			const phone = $('#phone');
+			const cord = phone.getBoundingClientRect();
+			window.scroll(cord.x, cord.y);
 			$('.error-box')?.remove();
 			errors.phone = 'Số điện thoại không được để trống';
-			$('#phone').classList.add('form__input-error');
+			phone.classList.add('form__input-error');
 			$('.checkout__info').insertBefore(errorBox(errors.phone), $('#address'));
 		} else {
 			if (!/(0[3|5|8|7|9])+([0-9]{8})\b/g.test(data.phone)) {
+				window.scroll(cord.x, cord.y);
 				$('.error-box')?.remove();
 				errors.phone = 'Số điện thoại không hợp lệ';
 				$('.checkout__info').insertBefore(
@@ -51,24 +55,32 @@ document.addEventListener('DOMContentLoaded', () => {
 				);
 			} else {
 				$('.error-box')?.remove();
-				$('#phone').classList.remove('form__input-error');
+				phone.classList.remove('form__input-error');
 			}
 		}
 
 		if (!data.provinces) {
+			const provinces = $('#provinces');
+			const cord = phone.getBoundingClientRect();
+			window.scroll(cord.x, cord.y);
+
 			$('#provinces ~ .error-box')?.remove();
+			window.scroll(cord.x, cord.y);
 			errors.provinces = 'Tên tỉnh thành không được để trống';
-			$('#provinces').classList.add('form__input-error');
+			provinces.classList.add('form__input-error');
 			$('.checkout__info').insertBefore(
 				errorBox(errors.provinces),
 				$('#district')
 			);
 		} else {
 			$('#provinces ~ .error-box')?.remove();
-			$('#provinces').classList.remove('form__input-error');
+			provinces.classList.remove('form__input-error');
 		}
-		//show bill info
-		addBillInfo(data);
+
+		if (data.phone && data.provinces) {
+			//show bill info
+			addBillInfo(data);
+		}
 	}
 });
 

@@ -84,6 +84,12 @@ Cart.prototype.removeItem = function (key) {
 	this.store();
 };
 
+Cart.prototype.empty = function () {
+	this._cart.clear();
+	this.update();
+	this.store();
+};
+
 /*FORMAT CURRENCY*/
 
 function formatCurrency(amount) {

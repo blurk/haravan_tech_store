@@ -9,6 +9,127 @@
 		font-size: clamp(1.4rem, 3.5vw, 2rem);
 		font-weight: 400;
 	}
+	.billDetail {
+		/*Trigger button*/
+		&__button {
+			&-container {
+				position: fixed;
+				display: block;
+				text-align: center;
+				width: 50px;
+				height: 50px;
+				padding: 10px;
+				bottom: 8%;
+				right: 6%;
+				cursor: pointer;
+			}
+			color: $secondary;
+			@include font-size(40px);
+			transition: $base-transition;
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+		/*Main*/
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgb(0, 0, 0);
+		background-color: rgba(0, 0, 0, 0.4);
+		/*Content*/
+		&__content {
+			background-color: #fefefe;
+			margin: 10% auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 50%;
+			& > * {
+				border-bottom: 1px solid $light;
+				padding: 20px 0;
+			}
+		}
+		/*Products*/
+		&__products {
+			@include flexBox(row, start, center);
+		}
+		&__product {
+			width: 100%;
+			@include flexBox(row, space-between, center);
+			.product__img-container {
+				position: relative;
+				img {
+					width: 120px;
+					height: 80px;
+				}
+				&::before {
+					content: attr(data-quantity);
+					position: absolute;
+					padding: 2px 8px;
+					border-radius: 50%;
+					color: $light;
+					background-color: $dark;
+					top: -10px;
+					right: -6px;
+				}
+			}
+			p {
+				@include font-size(18px);
+			}
+		}
+		&__coupon {
+			@include flexBox(row, space-between, center);
+			input {
+				width: 78%;
+				border: 1px solid $light;
+				border-radius: 4px;
+				padding: 8px 20px;
+				height: 50px;
+				line-height: 20px;
+				transition: $base-transition;
+				&:focus {
+					border-color: $primary;
+				}
+			}
+			button {
+				width: 20%;
+				height: 50px;
+				border-radius: 4px;
+				border: 0;
+				padding: 8px 20px;
+				@include font-size(18px);
+				line-height: 20px;
+				color: $light;
+				cursor: pointer;
+				transition: $base-transition;
+				background-image: linear-gradient(
+					to right,
+					$primary 50%,
+					$secondary 50%
+				);
+				background-size: 200% 100%;
+				&:hover {
+					background-position: -100% 0;
+				}
+			}
+		}
+		&__tempPrice {
+			p {
+				@include font-size(20px);
+				@include flexBox(row, space-between, center);
+				padding: 10px 0;
+			}
+		}
+		&__total {
+			@include font-size(30px);
+			color: $dark;
+			span {
+				float: right;
+			}
+		}
+	}
 }
 
 .checkout {
@@ -174,6 +295,27 @@
 @include respond-below(md) {
 	.wrapper {
 		padding: 0 10px;
+		.billDetail {
+			&__content {
+				width: 90%;
+				flex-direction: column;
+			}
+			&__product,
+			&__coupon {
+				@include flexBox(column, space-between, center);
+				input,
+				button {
+					width: 90%;
+					margin: 2px 0;
+				}
+			}
+			&__total {
+				text-align: center;
+				span {
+					float: none;
+				}
+			}
+		}
 	}
 	.checkout {
 		form {

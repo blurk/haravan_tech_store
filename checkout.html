@@ -148,16 +148,48 @@
 					</main>
 					<footer>
 						<p>
-							<i class="fa fa-question"></i>Bạn cần hỗ trợ?<a href=""></a>
-								Liên hệ chúng tôi</a
-							>
+							<i class="fa fa-question"></i>Bạn cần hỗ trợ?
+							<a href="">Liên hệ chúng tôi</a>
 						</p>
-						<a href="./products.html" class="btnContinue" id="btnContinue">Tiếp tục mua hàng</a>
+						<a href="./products.html" class="btnContinue" id="btnContinue"
+							>Tiếp tục mua hàng</a
+						>
 					</footer>
 				</div>
 				<!-- BILL INFO END-->
 			</main>
+
+			<!-- BILL DETAIL START -->
+			<div class="billDetail__button-container">
+				<span
+					data-tooltip="Chi tiết hóa đơn"
+					data-flow="top"
+					id="btnBillDetail"
+				>
+					<i class="fas fa-receipt billDetail__button"></i>
+				</span>
+			</div>
+
+			<div class="billDetail d-none" id="billDetail">
+				<div class="billDetail__content">
+					<div class="billDetail__products"></div>
+					<form class="billDetail__coupon">
+						<input type="text" name="coupon" id="coupon" />
+						<button>Sử dụng</button>
+					</form>
+					<div class="billDetail__tempPrice">
+						<p>Tạm tính <span id="tempPrice"></span></p>
+						<p>Phí vận chuyển <span id="transferPrice"></span></p>
+					</div>
+					<div class="billDetail__total">
+						Tổng cộng
+						<span></span>
+					</div>
+				</div>
+			</div>
+			<!-- BILL DETAIL END -->
 		</div>
+
 		<!-- SCRIPT -->
 		<script src="/script/cart.js"></script>
 		<script src="/script/checkout.js"></script>

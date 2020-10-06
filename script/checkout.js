@@ -1,8 +1,10 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+const transferFee = 40_000; //40,000VND
+let isCompleted = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-	$('#transferFee').innerText = formatCurrency(40000);
+	$('#transferFee').innerText = formatCurrency(transferFee);
 	//Add some visual effect for buttons
 	$('#btnComplete').addEventListener('mouseenter', function () {
 		this.innerHTML =
@@ -13,6 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		this.innerText = 'Hoàn tất đơn hàng';
 	});
 
+	$('.billDetail__coupon > button').addEventListener('mouseleave', function () {
+		this.innerText = 'Sử dụng';
+	});
+	$('.billDetail__coupon > button').addEventListener('mouseenter', function () {
+		this.innerHTML =
+			'<i class="fas fa-coins animate__animated animate__zoomIn"></i>';
+		this.style.setProperty('--animate-duration', '0.4s');
+	});
+
 	$('#btnContinue').addEventListener('mouseleave', function () {
 		this.innerText = 'Tiếp tục mua hàng';
 	});
@@ -20,6 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		this.innerHTML =
 			'<i class="fa fa-shopping-cart animate__animated animate__slideInLeft"></i>';
 		this.style.setProperty('--animate-duration', '0.4s');
+	});
+
+	/*Only remove cart when user complete*/
+	$('#btnContinue').addEventListener('click', () => {
+		let cart = new Cart();
+		cart.checkStore();
+		cart.empty();
 	});
 
 	//Handle form on click
@@ -80,8 +98,50 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (data.phone && data.provinces) {
 			//show bill info
 			addBillInfo(data);
+			isCompleted = true;
 		}
 	}
+
+	/*Handle modal*/
+
+	const modal = $('#billDetail');
+
+	$('#btnBillDetail').addEventListener('click', function () {
+		modal.classList.remove('d-none');
+		this.classList.add('d-none');
+		if (isCompleted) {
+			$('.billDetail__coupon').classList.add('d-none');
+		} else {
+			$('.billDetail__coupon').classList.remove('d-none');
+		}
+
+		let cart = new Cart();
+		cart.checkStore();
+
+		$('.billDetail__products').innerHTML = '';
+		cart.getItems().forEach((item) => {
+			const node = billItem(item);
+			renderToDom($('.billDetail__products'), node);
+		});
+
+		$('#tempPrice').innerText = formatCurrency(cart._totalPrice);
+		$('#transferPrice').innerText = isCompleted
+			? formatCurrency(transferFee)
+			: '---';
+
+		$('.billDetail__total > span').innerText = isCompleted
+			? formatCurrency(cart._totalPrice + transferFee)
+			: formatCurrency(cart._totalPrice);
+	});
+
+	window.addEventListener('click', (e) => {
+		if (e.target === modal) {
+			e.target.classList.add('d-none');
+			$('#btnBillDetail').classList.remove('d-none');
+		}
+	});
+
+	/*END OF DOM EVENT LISTENER*/
 });
 
 /**
@@ -98,6 +158,11 @@ function errorBox(err = 'Error') {
 	return fragment;
 }
 
+/**
+ * render bill information
+ * addBillInfo
+ */
+
 function addBillInfo(data = {}) {
 	$('#billId').innerText = '#129736';
 	[...$$('p[name="bill-phone"]')].forEach((elem) => {
@@ -112,4 +177,51 @@ function addBillInfo(data = {}) {
 
 	$('.bill-info').classList.remove('d-none');
 	$('form').classList.add('d-none');
+}
+
+/**
+ * Bill detail product item component
+ */
+
+function billItem(item) {
+	const container = document.createElement('div');
+	const imgContainer = document.createElement('div');
+	const img = document.createElement('img');
+	const name = document.createElement('p');
+	const totalPrice = document.createElement('p');
+
+	img.src = item._img;
+	imgContainer.setAttribute('data-quantity', item._quantity);
+	name.innerText = item._name;
+	totalPrice.innerText = formatCurrency(item._totalPrice);
+	imgContainer.appendChild(img);
+	imgContainer.className = 'product__img-container';
+
+	appendMultiChildren(container, imgContainer, name, totalPrice);
+
+	container.classList.add('billDetail__product');
+
+	return container;
+}
+
+/**
+ * render element to dom
+ */
+
+function renderToDom(target, elem) {
+	const fragment = document.createDocumentFragment();
+	fragment.appendChild(elem);
+	target.appendChild(fragment);
+}
+
+/**
+ * Function for append multiple children to parent element
+ * appendMultiChildren
+ * @params
+ */
+
+function appendMultiChildren(target, ...children) {
+	children.forEach((child) => {
+		target.appendChild(child);
+	});
 }
